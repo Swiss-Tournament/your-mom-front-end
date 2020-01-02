@@ -3,7 +3,7 @@ import {useDispatch} from "react-redux";
 import { LOGIN_START, LOGIN_SUCCESS, AUTH_ERROR } from "./actionTypes";
 //import axios helper
 
-export const useAuthActions = () => {
+export default useAuthActions = () => {
    const dispatch = useDispatch();
    
    // const autoLogin = useCallback(() => {}, [dispatch]);
