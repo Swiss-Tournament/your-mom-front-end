@@ -1,9 +1,10 @@
 import {useCallback} from "react";
 import {useDispatch} from "react-redux";
 import { LOGIN_START, LOGIN_SUCCESS, AUTH_ERROR } from "./actionTypes";
+import axios from 'axios';
 //import axios helper
 
-export default useAuthActions = () => {
+const useAuthActions = () => {
    const dispatch = useDispatch();
    
    // const autoLogin = useCallback(() => {}, [dispatch]);
@@ -27,3 +28,5 @@ export default useAuthActions = () => {
       login
    }
 };
+
+export default useAuthActions;
