@@ -49,7 +49,7 @@ function AutoCompleteForm() {
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <>
-            <Input {...getInputProps({ placeholder: "Type address" })} /> 
+            <Input type="text" {...getInputProps({ placeholder: "Type address" })} /> 
 
             <SuggestionContainer>
               {loading ? <div>...loading</div> : null}
