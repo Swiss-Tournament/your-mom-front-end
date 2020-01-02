@@ -50,4 +50,4 @@ const RegistrationSchema = yup.object().shape({
     passwordConfirm: Yup.string().oneOf([Yup.ref('password'), null]).required('Password confirm is required')
 })
 
-default export Registration;
+export default Registration;
