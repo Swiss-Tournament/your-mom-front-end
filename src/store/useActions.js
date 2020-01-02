@@ -1,6 +1,6 @@
 import useAuthActions from "./auth/actions";
 
-export const useActions = () => {
+export default () => {
    const auth = useAuthActions(); 
 
    return {
