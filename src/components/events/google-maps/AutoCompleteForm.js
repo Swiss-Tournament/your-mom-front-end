@@ -32,6 +32,7 @@ function AutoCompleteForm() {
 
   const SuggestionContainer = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 80%;
@@ -50,7 +51,7 @@ function AutoCompleteForm() {
           <>
             <Input {...getInputProps({ placeholder: "Type address" })} /> 
 
-            <div className="suggestionContainer">
+            <SuggestionContainer>
               {loading ? <div>...loading</div> : null}
 
               {suggestions.map(suggestion => {
@@ -59,12 +60,12 @@ function AutoCompleteForm() {
                 };
 
                 return (
-                  <div className="suggestion" {...getSuggestionItemProps(suggestion, { style })}>
+                  <div {...getSuggestionItemProps(suggestion, { style })}>
                     {suggestion.description}
                   </div>
                 );
               })}
-            </div>
+            </SuggestionContainer>
           </>
         )}
       </PlacesAutocomplete>
