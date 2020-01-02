@@ -4,11 +4,12 @@ import { GoogleMap, Marker, InfoWindow } from 'react-google-maps';
 function Map() {
   const [places, setPlaces] = useState([])
   const [selectedPlace, setSelectedPlace] = useState(null)
+  console.log(selectedPlace)
 
   return (
     <GoogleMap 
       defaultZoom={10} 
-      defaultCenter={{ lat: 41.081444, lng: -81.519005 }}>
+      defaultCenter={!selectedPlace ? { lat: 41.081444, lng: -81.519005 } : { lat: selectedPlace.lat, lng: selectedPlace.long }}>
 
       {places.map(place => {
         return (
