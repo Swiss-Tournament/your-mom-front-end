@@ -1,0 +1,28 @@
+body {
+    background-color: black;
+}
+
+.overlay-background{
+    background-color: gray;
+    display: flex;
+}
+
+.events {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.magic-info {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.card {
+    border: 2px solid black;
+}
+
+.footer {
+    color: gray;
+}
