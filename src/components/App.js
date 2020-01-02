@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import ActionsContext from "../context/Actions";
-import { useActions } from "../store/useActions";
+import useActions from "../store/useActions";
 import EventListings from "../components/events/EventListings"
 
 function App() {
@@ -8,7 +8,9 @@ function App() {
 
    return (
       <ActionsContext.Provider value={actions}>
-         <EventListings />
+         <div className="App">
+            <h1>Hello You</h1>
+         </div>
       </ActionsContext.Provider>
    );
 }

@@ -1,5 +1,5 @@
 import createReducer from "../createReducer";
-import { LOGIN_START, LOGIN_SUCCESS, LOGIN_END, SIGNUP_START, SIGNUP_SUCCESS, SIGNUP_END, AUTH_ERROR } from "./actionTypes";
+import { LOGIN_START, LOGIN_SUCCESS, LOGIN_END, SIGNUP_START, SIGNUP_SUCCESS, AUTH_ERROR } from "./actionTypes";
 
 const NO_ERRORS = null;
 const initialState = {
@@ -53,6 +53,5 @@ export default createReducer(initialState, {
    [LOGIN_END]: end,
    [SIGNUP_START]: start,
    [SIGNUP_SUCCESS]: success,
-   [SIGNUP_END]: end,
    [AUTH_ERROR]: authError
 });
