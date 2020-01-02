@@ -18,6 +18,7 @@ const ListingsContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
   margin: 1% 0;
   padding: 1rem;
 `
@@ -35,7 +36,7 @@ function EventListings() {
           isMarkerShown
           googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_API_KEY}`}
           loadingElement={<div style={{ height: `100%` }} />}
-          containerElement={<div style={{ height: `400px`, width: `50%` }} />}
+          containerElement={<div style={{ height: `400px`, width: `100%` }} />}
           mapElement={<div style={{ height: `100%` }} />} />
       </EventsContainer>
     </>
