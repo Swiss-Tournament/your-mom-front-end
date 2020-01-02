@@ -15,22 +15,22 @@ export default function LandingPage() {
                     <h2>Events</h2>
                     <div className='card left'>
                         <img src={Island} alt="forest mtg card" class="image"/>
-                        <h3>Upcoming Events</h3>
+                        <h3 className='overlay'>Upcoming Events</h3>
                     </div>
                     <div className='card left'>
                         <img src={Swamp} alt="forest mtg card" class="image"/>
-                        <h3>Register An Event</h3>
+                        <h3 className='overlay'>Register An Event</h3>
                     </div>
                 </div>
                 <div className='magic-info'>
                     <h2>Magic Info</h2>
                     <div className='card right'>
                         <img src={Plains} alt="forest mtg card" class="image"/>
-                        <h3>Magic News</h3>
+                        <h3 className='overlay'>Magic News</h3>
                     </div>
                     <div className='card right'>
                         <img src={Forest} alt="forest mtg card" class="image"/>
-                        <h3>Card DataBase</h3>
+                        <h3 className='overlay'>Card DataBase</h3>
                     </div>
                 </div>
                 
