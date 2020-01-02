@@ -16,26 +16,22 @@ function AutoCompleteForm() {
     setCoordinates(latLng);
   };
 
-  const Input = styled.input`
-    width: 24rem;
-    height: 2.5rem;
-    margin: 1% auto;
-    padding-left: 3%;
-    border-radius: .6rem;
-    border: 1px black solid;
-
-    &:focus {
-      outline: none;
-      background-color: #C7E0FC;
-    }
-  `
+  const inputStyles = {
+    width: '24rem',
+    height: '2.5rem',
+    margin: '1% auto',
+    paddingLeft: '3%',
+    border: '1px black solid',
+  }
 
   const SuggestionContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 75%;
+    min-height: 10rem;
+    height: 100%;
     margin: 1% auto;
     cursor: pointer;
   `
@@ -49,14 +45,14 @@ function AutoCompleteForm() {
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <>
-            <Input type="text" {...getInputProps({ placeholder: "Type address" })} /> 
+            <input type="text" style={inputStyles} {...getInputProps({ placeholder: "Type address" })} /> 
 
             <SuggestionContainer>
               {loading ? <div>...loading</div> : null}
 
               {suggestions.map(suggestion => {
                 const style = {
-                  backgroundColor: suggestion.active ? "#C7E0FC" : "#fff"
+                  backgroundColor: suggestion.active ? "#C7E0FC" : "#fff", margin:`0.5% 0`, padding: `0 1%`
                 };
 
                 return (
