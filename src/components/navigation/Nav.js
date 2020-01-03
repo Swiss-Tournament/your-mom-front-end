@@ -25,11 +25,19 @@ const NewLinks = styled(NavLink)`
   font-size: 1.5rem;
 `;
 
+const NewDropToggle = styled(DropdownToggle)`
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+`;
+
 const Navigation = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggle = () => setDropdownOpen(!dropdownOpen);
+
   const UserSignedIn = getUserToken();
+
   return (
     <div>
       <NewNav>
@@ -41,20 +49,39 @@ const Navigation = () => {
         </NavItem>
         <NavItem>
           {/*  Commented out until link set up */}
-          {/* {UserSignedIn && <NavLink to="/events">Events</NavLink>} */}
+          {/* {UserSignedIn && <NavLinks href="/events">Events</NavLinks>} */}
           <NewLinks href="/events">Events</NewLinks>
         </NavItem>
         <Dropdown nav isOpen={dropdownOpen} toggle={toggle}>
-          <DropdownToggle nav caret>
+          <NewDropToggle nav caret>
             Login
-          </DropdownToggle>
+          </NewDropToggle>
           <DropdownMenu>
-            <DropdownItem tag={Link} to="/login">
-              Login
+            {!UserSignedIn && (
+              <DropdownItem tag={Link} to="/login">
+                Login
+              </DropdownItem>
+            )}
+            {!UserSignedIn && (
+              <DropdownItem tag={Link} to="/register">
+                Register
+              </DropdownItem>
+            )}
+            {/* {UserSignedIn && ( */}
+            <DropdownItem tag={Link} to="/logout">
+              Logout
             </DropdownItem>
-            <DropdownItem tag={Link} to="/register">
-              Register
+            {/* )} */}
+            {/* {UserSignedIn && ( */}
+            <DropdownItem tag={Link} to="/create-event">
+              Create Event
             </DropdownItem>
+            {/* )} */}
+            {/* {UserSignedIn && ( */}
+            <DropdownItem tag={Link} to="/user/:id/my-events">
+              My Events
+            </DropdownItem>
+            {/* )} */}
 
             <DropdownItem divider />
           </DropdownMenu>
