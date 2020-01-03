@@ -38,6 +38,7 @@ export default createGlobalStyle`
       font-family: ${headerFont};
       color: ${colors.headerColor};
       font-weight: bold;
+      
    }
 
    h1 {

@@ -1,16 +1,13 @@
-/* * {
-  box-sizing: border-box;
-} */
-
 .body {
-    background-color: black;
+  background-color: black;
 }
 
 .overlay-background {
-  background-color: gray;
+  background-color: #0c0c0b;
   display: flex;
   width: 100%;
   flex-direction: column;
+  padding-top: 2%;
 }
 
 .flex {

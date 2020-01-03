@@ -29,18 +29,21 @@ const NewNav = styled(Nav)`
   justify-content: space-evenly;
   width: 100%;
   background: black;
+  height: 50px;
 `;
 
 const NewLinks = styled(NavLink)`
   color: white;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  padding-top: 25px;
 `;
 
 const NewDropToggle = styled(DropdownToggle)`
   color: white;
   text-decoration: none;
   font-size: 1.5rem;
+  padding-top: 25px;
 `;
 
 const Navigation = () => {
