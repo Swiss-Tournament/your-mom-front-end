@@ -25,12 +25,12 @@ export function clearToken () {
 //    localStorage.removeItem("user");
 // };
 
-export const axiosWithAuth = () => {
+export const axiosWithAuth = (token) => {
    return axios.create({
       baseURL: "https://magic-the-gathering-tournament.herokuapp.com/api",
       headers: {
          'Content-Type': 'application/json',
-         'Authorization': getToken()
+         'Authorization': token? token : getToken()
       }
    })
 }
