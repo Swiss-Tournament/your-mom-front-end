@@ -22,12 +22,7 @@ const initialState = {
       maxRounds: -1,
       admins: [],
       players: [
-         /*
-         {
-            id: -1
-            name: "",
-         }
-         */
+
       ],
       scoreBoard: [
          /*
