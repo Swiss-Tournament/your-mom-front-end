@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const EventRules = (props, status) => {
+const EventRules = (props) => {
 	const [eventFormat, setEventFormat] = useState({});
 
 	const eventFormats = [
