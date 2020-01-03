@@ -16,7 +16,6 @@ function Listing({ places }) {
             <Paragraph>{place.location}</Paragraph>
             <Paragraph>{newDate}</Paragraph>
             <Link to={`/events/${place.id}`}>
-              <EventPage key={place.id} />
               Join the Event!
             </Link>
           </GameListing>
