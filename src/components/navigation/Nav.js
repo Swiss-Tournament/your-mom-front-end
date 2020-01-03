@@ -21,26 +21,35 @@ import EventPage from "../events/EventPage/EventPage";
 import EventListings from "../events/EventListings";
 import Login from "../UserAccess/Login";
 import Logout from "./routes/UserLogOut";
-import Register from "../UserAccess/Registration"
+import Register from "../UserAccess/Registration";
 import CreateEvent from "../UserAccess/CreateEvent";
+import Team from "../team/team";
 
 const NewNav = styled(Nav)`
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   width: 100%;
-  background: black;
+  // changed background color to match global.
+  background: #0c0c0b;
+  // added nav height.
+  height: 100px;
 `;
 
 const NewLinks = styled(NavLink)`
   color: white;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  // added padding.
+  padding-top: 25px;
 `;
 
 const NewDropToggle = styled(DropdownToggle)`
   color: white;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  // added padding.
+  padding-top: 25px;
 `;
 
 const Navigation = () => {
@@ -54,51 +63,50 @@ const Navigation = () => {
     <div>
       <NewNav>
         <NavItem>
-          <NewLinks href="/">Home</NewLinks>
+          <NewLinks href='/'>Home</NewLinks>
         </NavItem>
         <NavItem>
-          <NewLinks href="/team">Team</NewLinks>
+          <NewLinks href='/team'>Team</NewLinks>
         </NavItem>
         <NavItem>
           {/*  Commented out until link set up */}
           {/* {UserSignedIn && <NavLinks href="/events">Events</NavLinks>} */}
-          <NewLinks href="/events">Events</NewLinks>
+          <NewLinks href='/events'>Events</NewLinks>
         </NavItem>
         <Dropdown nav isOpen={dropdownOpen} toggle={toggle}>
           <NewDropToggle nav caret>
             {/* <FontAwesomeIcon icon={faUser} size="1x" color="white" /> */}
-            <FontAwesomeIcon icon={faHatWizard} size="1x" color="white" />
+            <FontAwesomeIcon icon={faHatWizard} size='1x' color='white' />
           </NewDropToggle>
           <DropdownMenu>
             {!UserSignedIn && (
-              <DropdownItem tag={Link} to="/login">
+              <DropdownItem tag={Link} to='/login'>
                 Login
               </DropdownItem>
             )}
-              // {/* )} */}
-              // {/* {UserSignedIn && ( */}
-              <DropdownItem tag={Link} to='/user/:id/my-events'>
-                My Events
-              </DropdownItem>
-              // {/* )} */}
 
-              <DropdownItem divider />
-            </DropdownMenu>
-          </Dropdown>
+            {/* {UserSignedIn && ( */}
+            <DropdownItem tag={Link} to='/user/:id/my-events'>
+              My Events
+            </DropdownItem>
 
-          {/* <NavLink to="/login">Login</NavLink> */}
-        </NewNav>
+            <DropdownItem divider />
+          </DropdownMenu>
+        </Dropdown>
 
-        <Switch>
-          <Route exact path='/' component={LandingPage} />
-          <Route exact path='/events' component={EventListings} />
-          <Route path='/events/:id' component={EventPage} />
-          <Route path='/login' component={Login} />
-          <Route path='/logout' component={Logout} /> 
-          <Route path='/register' component={Register} />
-          <Route path='/create-event' component={CreateEvent} /> 
-        </Switch>
-      
+        {/* <NavLink to="/login">Login</NavLink> */}
+      </NewNav>
+
+      <Switch>
+        <Route exact path='/' component={LandingPage} />
+        <Route exact path='/events' component={EventListings} />
+        <Route path='/team' component={Team} />
+        <Route path='/events/:id' component={EventPage} />
+        <Route path='/login' component={Login} />
+        <Route path='/logout' component={Logout} />
+        <Route path='/register' component={Register} />
+        <Route path='/create-event' component={CreateEvent} />
+      </Switch>
     </div>
   );
 };

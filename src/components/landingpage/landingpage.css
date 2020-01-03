@@ -1,16 +1,14 @@
-/* * {
-  box-sizing: border-box;
-} */
-
 .body {
-    background-color: black;
+  background-color: black;
 }
 
 .overlay-background {
-  background-color: gray;
+  background-color: #0c0c0b;
   display: flex;
   width: 100%;
   flex-direction: column;
+  /* added padding */
+  padding-top: 2%;
 }
 
 .flex {
@@ -22,7 +20,8 @@
   flex-direction: column;
   width: 50%;
   align-items: center;
-  border-right: 0.3rem solid black;
+  /* added new background color. this changes the img sizes if removed. */
+  border-right: 0.3rem solid #0c0c0b;
 }
 
 .magic-info {
