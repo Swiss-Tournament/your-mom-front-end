@@ -21,7 +21,14 @@ const initialState = {
       currentRound: 0,
       maxRounds: -1,
       admins: [],
-      players: [],
+      players: [
+         /*
+         {
+            id: -1
+            name: "",
+         }
+         */
+      ],
       scoreBoard: [
          /*
          {
@@ -32,7 +39,8 @@ const initialState = {
             ogw: -1.0
          }
          */   
-      ]
+      ],
+      pairings: null
    },
    isFetchingData: false,
    error: NO_ERROR
