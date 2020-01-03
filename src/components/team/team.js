@@ -10,6 +10,7 @@ import {
   MIN_WIDTH,
   MAX_WIDTH
 } from "../style-utils/variables";
+// styled components.
 
 // page container
 const TeamContainer = styled.div`
@@ -18,25 +19,20 @@ const TeamContainer = styled.div`
 // photo styling.
 const TeamPhoto = styled.img`
   width: 100%;
-  padding: 10px;
+  //   padding: 10px;
 `;
 const TeamName = styled.h1`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 2%;
 `;
 export default function Team() {
   return (
     <TeamContainer>
       <div className='team-wrapper'>
-        <div className='individual-card'>
-          <TeamName>Bad News Bears Crew</TeamName>
-          <TeamPhoto
-            src={image}
-            alt='badnewsbearscrew'
-            className='team-photo'
-          />
-        </div>
+        <TeamName>Bad News Bears Crew</TeamName>
+        <TeamPhoto src={image} alt='badnewsbearscrew' className='team-photo' />
       </div>
     </TeamContainer>
   );
