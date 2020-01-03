@@ -1,10 +1,13 @@
 import {useCallback} from "react";
 import {useDispatch} from "react-redux";
 import { LOGIN_START, LOGIN_SUCCESS, LOGIN_END, SIGNUP_START, SIGNUP_SUCCESS, AUTH_ERROR } from "./actionTypes";
-import {axiosWithAuth as axios, getToken} from "../../utils/axiosWithAuth";
+import {axiosWithAuth as axios, getToken, setToken} from "../../utils/axiosWithAuth";
 
 const useAuthActions = () => {
    const dispatch = useDispatch();
+   const updateUser = ({id, username}) => {
+      dispatch({type: LOGIN_SUCCESS, payload: {id, username}});
+   };
    
    const autoLogin = useCallback(() => {
       dispatch({type: LOGIN_START});
@@ -12,9 +15,7 @@ const useAuthActions = () => {
       if (getToken()) {
          axios()
             .get("/auth/user")
-            .then(user => {
-               dispatch({type: LOGIN_SUCCESS, payload: user});
-            })
+            .then(updateUser)
             .catch(error => {
                console.error(error.response);
                dispatch({type: AUTH_ERROR, payload: error});
@@ -30,8 +31,12 @@ const useAuthActions = () => {
       axios()
          .post("/auth/login", credentials)
          .then(response => {
-            dispatch({type: LOGIN_SUCCESS, payload: response.data.user});
+            console.log(response.message);
+            setToken(response.token);
+            
+            return axios(response.token).get("/auth/user");
          })
+         .then(updateUser)
          .catch(error => {
             console.error(error.response);
             dispatch({type: AUTH_ERROR, payload: error.response});
@@ -43,8 +48,8 @@ const useAuthActions = () => {
 
       axios()
          .post("/auth/register", newUser)
-         .then(response => {
-            dispatch({type: SIGNUP_SUCCESS, payload: response.data.user});
+         .then(({id, username}) => {
+            dispatch({type: SIGNUP_SUCCESS, payload: {id, username}});
             // if (history && history.goBack) history.goBack();
          })
          .catch(error => {

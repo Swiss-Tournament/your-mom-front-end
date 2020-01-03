@@ -1,9 +1,13 @@
 import createReducer from "../createReducer";
 import { LOGIN_START, LOGIN_SUCCESS, LOGIN_END, SIGNUP_START, SIGNUP_SUCCESS, AUTH_ERROR } from "./actionTypes";
+import useAuthActions from "./actions";
 
 const NO_ERRORS = null;
 const initialState = {
-   user: {},
+   user: {
+      id: -1,
+      username: ""
+   },
    isAuthorizing: false,
    error: null
 };
@@ -36,7 +40,7 @@ const end = (state, action) => {
       error: NO_ERRORS
    };
 };
-const authError = (state, action) => {
+const error = (state, action) => {
    return {
       ...state,
       user: {
@@ -53,5 +57,5 @@ export default createReducer(initialState, {
    [LOGIN_END]: end,
    [SIGNUP_START]: start,
    [SIGNUP_SUCCESS]: success,
-   [AUTH_ERROR]: authError
+   [AUTH_ERROR]: error
 });

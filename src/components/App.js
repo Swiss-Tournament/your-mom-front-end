@@ -10,6 +10,7 @@ function App() {
       <ActionsContext.Provider value={actions}>
         
       </ActionsContext.Provider>
+      
    );
 }
 
