@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { getUserToken } from "./routes/userAPI";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faHatWizard } from "@fortawesome/free-solid-svg-icons";
 import {
   Nav,
   NavItem,
@@ -56,7 +56,8 @@ const Navigation = () => {
         </NavItem>
         <Dropdown nav isOpen={dropdownOpen} toggle={toggle}>
           <NewDropToggle nav caret>
-            <FontAwesomeIcon icon={faUser} size="1x" color="white" />
+            {/* <FontAwesomeIcon icon={faUser} size="1x" color="white" /> */}
+            <FontAwesomeIcon icon={faHatWizard} size="1x" color="white" />
           </NewDropToggle>
           <DropdownMenu>
             {!UserSignedIn && (
