@@ -1,10 +1,15 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "./reset";
-import { bodyFont, colors, headerFont, MIN_WIDTH, MAX_WIDTH } from "./variables";
+import {
+  bodyFont,
+  colors,
+  headerFont,
+  MIN_WIDTH,
+  MAX_WIDTH
+} from "./variables";
 
 export default createGlobalStyle`
-   @import url('https://fonts.googleapis.com/css?family=Cabin|Roboto+Condensed&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Almendra|Almendra+SC&display=swap');
    ${reset}
 
    * {

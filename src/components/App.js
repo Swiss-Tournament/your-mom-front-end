@@ -4,13 +4,21 @@ import useActions from "../store/useActions";
 
 import LandingPage from "../components/landingpage/LandingPage";
 
+// import styled from "styled-components";
+// import {
+//   bodyFont,
+//   colors,
+//   headerFont,
+//   MIN_WIDTH,
+//   MAX_WIDTH
+// } from "../components/style-utils/variables";
+
 function App() {
   const actions = useActions();
 
   return (
     <ActionsContext.Provider value={actions}>
       <div className='App'>
-        <h1>Hello You</h1>
         <LandingPage />
       </div>
     </ActionsContext.Provider>
