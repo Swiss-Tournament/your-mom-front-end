@@ -4,16 +4,24 @@ import { FETCH_EVENT_START, FETCH_EVENT_SUCCESS, CREATE_EVENT_START, CREATE_EVEN
 const NO_ERROR = null;
 const initialState = {
    event: {
-      admins: [],
-      date: null,
+      id: -1,
+      name: "",
       location: {
          address: "",
          lat: -1,
          lng: -1
       },
-      format: "",
-      players: [],
+      public: false,
+      complete: false,
+      date: "",
+      gameFormat: "",
+      eventNotes: "",
+      maxPlayers: -1,
+      roundEndTime: "",
       currentRound: 0,
+      maxRounds: -1,
+      admins: [],
+      players: [],
       scoreBoard: [
          /*
          {
@@ -64,7 +72,7 @@ const error = (state, action) => {
          players: [...state.event.players],
          scoreBoard: [...state.event.scoreBoard]
       },
-      isFetchingData: true,
+      isFetchingData: false,
       error: action.payload
    };
 };
