@@ -20,7 +20,7 @@ const EventPage = ({
   const data = useSelector(state => state.event.event);
 
   console.log(data, "eventpage");
-
+  
   return (
     <>
       <EventWrapper>
@@ -31,7 +31,10 @@ const EventPage = ({
           location="location"
           data={data}
         />
-        <EventRules format="format" />
+        <EventRules 
+          gameFormat="gameFormat" 
+          data={data}  
+        />
 
         <PlayersAndScores>
           <PlayerList>
