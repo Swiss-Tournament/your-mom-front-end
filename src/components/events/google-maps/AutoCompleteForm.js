@@ -1,14 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 import styled from 'styled-components';
 
-function AutoCompleteForm() {
-  const [address, setAddress] = useState("");
-  const [coordinates, setCoordinates] = useState({
-    lat: null,
-    lng: null
-  });
-
+function AutoCompleteForm({ address, setAddress, coordinates, setCoordinates }) {
+  
   const handleSelect = async value => {
     const results = await geocodeByAddress(value);
     const latLng = await getLatLng(results[0]);
@@ -45,6 +40,7 @@ function AutoCompleteForm() {
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <>
+      
             <input type="text" style={inputStyles} {...getInputProps({ placeholder: "Type address" })} /> 
 
             <SuggestionContainer>

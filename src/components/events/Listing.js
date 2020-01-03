@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const GameListing = styled.div`
@@ -37,15 +38,22 @@ const EventLink = styled.a`
   }
 `
 
-function Listing() {
+function Listing({ places }) {
+  console.log(places)
   return (
-    <GameListing>
-      <Heading>Name of Place</Heading>
-      <Paragraph>Address of Event</Paragraph>
-      <EventLink to="/">
-        I am a link.
-      </EventLink>
-    </GameListing>
+    <>
+      {places.map(place => {
+        return (
+          <GameListing>
+            <Heading>{place.name}</Heading>
+            <Paragraph>{place.location}</Paragraph>
+            <Link to={`/events/${place.id}`}>
+              Join Event!
+            </Link>
+          </GameListing>
+        )
+      })}
+    </>
   )
 }
 

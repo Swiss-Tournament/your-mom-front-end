@@ -8,7 +8,7 @@ function App() {
 
    return (
       <ActionsContext.Provider value={actions}>
-         <EventListings />
+        
       </ActionsContext.Provider>
    );
 }
