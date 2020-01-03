@@ -69,13 +69,11 @@ const Navigation = () => {
           <NewLinks href='/team'>Team</NewLinks>
         </NavItem>
         <NavItem>
-          {/*  Commented out until link set up */}
-          {/* {UserSignedIn && <NavLinks href="/events">Events</NavLinks>} */}
+          {UserSignedIn && <NavLink href="/events">Events</NavLink>}
           <NewLinks href='/events'>Events</NewLinks>
         </NavItem>
         <Dropdown nav isOpen={dropdownOpen} toggle={toggle}>
           <NewDropToggle nav caret>
-            {/* <FontAwesomeIcon icon={faUser} size="1x" color="white" /> */}
             <FontAwesomeIcon icon={faHatWizard} size='1x' color='white' />
           </NewDropToggle>
           <DropdownMenu>
@@ -85,16 +83,17 @@ const Navigation = () => {
               </DropdownItem>
             )}
 
-            {/* {UserSignedIn && ( */}
+            {UserSignedIn && (
             <DropdownItem tag={Link} to='/user/:id/my-events'>
               My Events
             </DropdownItem>
 
+            )}
             <DropdownItem divider />
           </DropdownMenu>
         </Dropdown>
 
-        {/* <NavLink to="/login">Login</NavLink> */}
+        <NavLink to="/login">Login</NavLink>
       </NewNav>
 
       <Switch>
