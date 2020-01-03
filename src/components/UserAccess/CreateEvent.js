@@ -3,56 +3,42 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 
 const CreateEvent = () => {
-  const { register, handleSubmit, errors } = useForm({
+  const { register, handleSubmit, watch, errors } = useForm({
     validationSchema: CreateEventSchema
   });
   const onSubmit = data => {
-    console.log("Create Event", data);
+    console.log(data);
   };
 
+  console.log(watch("name"));
+  console.log(watch("name"));
+  console.log(watch("name"));
+  console.log(watch("name"));
+
   return (
-    <form className="create-event" onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <h1>Create Event</h1>
-      <label htmlFor="organizerName">Organizer Name:</label>
-      <input name="organizerName" id="organizerName" ref={register} />
-      {errors.organizerName && (
-        <p className="errors">{errors.organizerName.message}</p>
-      )}
-      <label htmlFor="organizerTwoName">Organizer Two Name:</label>
-      <input name="organizerTwoName" id="organizerTwoName" ref={register} />
-      {errors.organizerTwoName && (
-        <p className="errors">{errors.organizerTwoName.message}</p>
-      )}
-      <label htmlFor="eventDate">Event Date:</label>
-      <input name="eventDate" id="eventDate" ref={register} />
-      {errors.eventDate && <p className="errors">{errors.eventDate.message}</p>}
-      <label htmlFor="eventTime">Event Time</label>
-      <input name="eventTime" id="eventTime" ref={register} />
-      {errors.eventTime && <p className="errors">{errors.eventTime.message}</p>}
-      <label htmlFor="eventLocation">Event Location:</label>
+
+      <label htmlFor="name">Event Name</label>
+      <input name="name" id="name" ref={register} />
+      {errors.name && <p className="errors">{errors.name.message}</p>}
+      <label htmlFor="date">Event Date and Time:</label>
+      <input name="date" id="date" ref={register} />
+      {errors.date && <p className="errors">{errors.date.message}</p>}
+
+      <label htmlFor="location">Event Location:</label>
+      <input type="location" name="location" id="location" ref={register} />
+      {errors.location && <p className="errors">{errors.location.message}</p>}
+
+      <label htmlFor="eventNotes">Event details</label>
       <input
-        type="eventLocation"
-        name="eventLocation"
-        id="eventLocation"
+        type="eventNotes"
+        name="eventNotes"
+        id="eventNotes"
         ref={register}
       />
-      {errors.eventLocation && (
-        <p className="errors">{errors.eventLocation.message}</p>
-      )}
-
-      <label htmlFor="eventName">Event Name</label>
-      <input type="eventName" name="eventName" id="eventName" ref={register} />
-      {errors.eventName && <p className="errors">{errors.eventName.message}</p>}
-
-      <label htmlFor="eventDetails">Event Details</label>
-      <input
-        type="eventDetails"
-        name="eventDetails"
-        id="eventDetails"
-        ref={register}
-      />
-      {errors.eventDetails && (
-        <p className="errors">{errors.eventDetails.message}</p>
+      {errors.eventNotes && (
+        <p className="errors">{errors.eventNotes.message}</p>
       )}
 
       <input type="submit" />
@@ -61,29 +47,21 @@ const CreateEvent = () => {
 };
 
 const CreateEventSchema = yup.object().shape({
-  organizerName: yup
+  name: yup
     .string()
     .required("This is a required field.")
     .min(3),
-  organizerTwoName: yup
+  date: yup
     .string()
-    .required("This is a required field.")
-    .min(3),
-  eventDate: yup
-    .string()
-    // .eventDate("Enter a valid eventDate.")
+    // .date("Enter a valid date.")
     .required("Event Date is required."),
-  eventTime: yup.string().required("Event Time is required."),
-  eventLocation: yup
+
+  location: yup
     .string()
     .required("Event Location is required.")
     .min(8)
     .max(20),
-  eventName: yup
-    .string()
-    .required("Event Location is required..")
-    .min(3),
-  eventDetails: yup.string().min(3)
+  eventNotes: yup.string().min(3)
 });
 
 export default CreateEvent;

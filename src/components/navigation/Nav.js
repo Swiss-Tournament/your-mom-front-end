@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import { getUserToken } from "./routes/userAPI";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faHatWizard } from "@fortawesome/free-solid-svg-icons";
