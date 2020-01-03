@@ -20,7 +20,9 @@ import LandingPage from "../landingpage/LandingPage";
 // import Team from "";
 // import EventListings from "../events/EventPage/EventPage";
 // import Login from "../UserAccess/Login";
-// import Registration from "../UserAccess/Registration";
+// import Logout from "../routes/UserLogOut";
+// import Register from "../UserAccess/Registration"
+// import create-event from "../UserAccess/Registration";
 
 const NewNav = styled(Nav)`
   display: flex;
