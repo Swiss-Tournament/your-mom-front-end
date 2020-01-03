@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import AuthActions from '../../context/Actions';
+import ActionsContext from '../../context/Actions';
 
 const Login = () => {
 
@@ -10,7 +10,7 @@ const Login = () => {
         validationSchema: LoginSchema
     });
 
-    const { auth } = useContext(AuthActions);
+    const { auth } = useContext(ActionsContext);
 
     const onSubmit = data => { 
         console.log('Before Submit', data);
