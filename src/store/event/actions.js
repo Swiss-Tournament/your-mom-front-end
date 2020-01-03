@@ -1,5 +1,6 @@
 import {useCallback} from "react";
 import {useDispatch} from "react-redux";
+import axios from 'axios';
 import {FETCH_EVENT_START, FETCH_EVENT_SUCCESS, CREATE_EVENT_START, CREATE_EVENT_SUCCESS, EVENT_ERROR, BEGIN_MATCH_SUCCESS} from "./actionTypes";
 import {axiosWithAuth} from "../../utils/axiosWithAuth"
 
@@ -24,9 +25,20 @@ const useEventActions = () => {
 
    const createEvent = useCallback((userId, eventData) => {
       dispatch({type: CREATE_EVENT_START});
+      let newEvent = {...eventData}
+      const address = eventData.location.replace(/\s+/g, "+");
+      const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_API_KEY}`;
 
-      axiosWithAuth()
-         .post(`/event/${userId}`, eventData)
+      axios.get(url)
+         .then(response => {
+            console.log("Google API success\n", response);
+
+            newEvent.lat = response.data.results[0].geometry.location.lat;
+            newEvent.lng = response.data.results[0].geometry.location.lng;
+
+            console.log("Gunna send this: ", newEvent);
+            return axiosWithAuth().post(`/event/${userId}`, eventData)
+         })
          .then(({data}) => {
             console.log("New Event Created: ", data);
             dispatch({type: CREATE_EVENT_SUCCESS, payload: data})

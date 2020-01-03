@@ -1,10 +1,15 @@
-import React, { useState } from "react";
-// import { useSelector } from "react-redux";
+import React, { useState, useContext } from "react";
+import { useSelector } from "react-redux";
 import styled from 'styled-components';
 import axios from "axios";
+import ActionsContext from '../../context/Actions';
 
 const CreateEvent = () => {
-  // Trued to use user in URl but did not work.
+  const error = useSelector(state => state.event.error)
+  const user = useSelector(state => state.auth.user)
+  console.log(user)
+
+  const { event } = useContext(ActionsContext);
 
   //   const user = useSelector(state => state.auth.user);
   const [newEvent, setNewEvent] = useState({
@@ -13,8 +18,8 @@ const CreateEvent = () => {
     location: " ",
     public: false,
     eventNotes: " ",
-    eventPlayers: "",
-    format: ""
+    players: "",
+    gameFormat: ""
   });
 
   const handleChange = e => {
@@ -23,18 +28,14 @@ const CreateEvent = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    axios.post(`https://magic-the-gathering-tournament.herokuapp.com/api/event/ , event`)
-      .then(res => {
-        console.log("res", res);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    event.createEvent(user.id, newEvent)
     setNewEvent({
       name: " ",
       date: " ",
       location: " ",
       eventNotes: " ",
+      players: "",
+      gameFormat: "",
       public: false
     });
   };
@@ -78,13 +79,13 @@ const CreateEvent = () => {
       <label>Max Players</label>
       <Input
         type="text"
-        name="eventPlayers"
-        value={newEvent.eventPlayers}
+        name="players"
+        value={newEvent.players}
         onChange={handleChange}
         required
       />
 
-      <Select name="format" onChange={handleChange} required>
+      <Select name="gameFormat" onChange={handleChange} required>
         <option value="" disabled>Choose Format...</option>
         <option value="Standard">Standard</option>
         <option value="Modern">Modern</option>
