@@ -52,6 +52,21 @@ const NewDropToggle = styled(DropdownToggle)`
   padding-top: 25px;
 `;
 
+const NewDropdownMenu = styled(DropdownMenu)`
+  display: flex;
+  justify-content: center;
+  min-width: 30rem;
+  width: 100%;
+  min-height: 30rem;
+  height: 100%;
+`
+
+const NewDropDownItem = styled(DropdownItem)`
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: center;
+`
+
 const Navigation = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -62,6 +77,9 @@ const Navigation = () => {
   return (
     <div>
       <NewNav>
+        <NavItem>
+          <h1>MTG Tourney</h1>
+        </NavItem>
         <NavItem>
           <NewLinks href='/'>Home</NewLinks>
         </NavItem>
@@ -78,15 +96,15 @@ const Navigation = () => {
           </NewDropToggle>
           <DropdownMenu>
             {!UserSignedIn && (
-              <DropdownItem tag={Link} to='/login'>
+              <NewDropDownItem tag={Link} to='/login'>
                 Login
-              </DropdownItem>
+              </NewDropDownItem>
             )}
 
             {UserSignedIn && (
-            <DropdownItem tag={Link} to='/user/:id/my-events'>
+            <NewDropDownItem tag={Link} to='/user/:id/my-events'>
               My Events
-            </DropdownItem>
+            </NewDropDownItem>
 
             )}
             <DropdownItem divider />
