@@ -9,17 +9,17 @@ export const bodyFont = `'Almendra', serif`;
 // font-family: 'Almendra', serif;
 // font-family: 'Almendra SC', serif;
 //*** Colors ***//
-const palette = ["#464655", "#94958b", "#b7b6c1", "#d5cfe1", "#eddfef"];
+const palette = [
+  "#808C77",
+  "#D9BE3B",
+  "#D9B64E",
+  "#BF5B04",
+  "#592202",
+  "#262621"
+];
+
 const alpha = "b2";
 // ***New Color Themes*** ///
-/* Color Theme Swatches in Hex */
-// LA THEME
-// const Magic-color: #DFE7F2;  // ***Super Light Blue, White*** ///
-// const Magic-color: #9ABBD9;  // ***Light Blue*** ///
-// const Magic-color: #268C8C;  // ***Teal*** ///
-// const Magic-color: #9FA668;  // ***Forest Green/ Camo light*** ///
-// const darkBrown: #262621;  // ***Dark Brown*** ///
-
 /* Color Theme Swatches in Hex */
 // Regular Magic The Gathering theme
 // const forestGreen: #808C77;
@@ -27,6 +27,7 @@ const alpha = "b2";
 // const goldenYellow: #D9B64E;
 // const autumOrange: #BF5B04;
 // const burgundyRed: #592202;
+// const darkBrown: #262621;
 
 //*** Named Colors ***//
 const attentionColor = palette[0];
@@ -36,6 +37,8 @@ const bgColor = palette[2];
 const accent = palette[4];
 const darkText = palette[0];
 const lightText = palette[3];
+// new color
+const darkBckgrnd = palette[5];
 // in global styles
 const headerColor = darkText;
 const bodyColor = darkText;

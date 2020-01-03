@@ -2,9 +2,6 @@
 import { css } from "styled-components";
 
 //helper functions
-// function setCssFromProps(props, cssProp, noProp) {
-//   return props[cssProp] ? props[cssProp] : noProp;
-// }
 
 //mixin without parameters
 //*** Auto-Scale ***//
@@ -27,6 +24,17 @@ export const customLayout = (
    justify-content: ${justify};
    align-items: ${align};
 `;
+
+// buttons
+// const Button = styled.button`
+//   color: palevioletred;
+//   font-size: 1em;
+//   margin: 1em;
+//   padding: 0.25em 1em;
+//   border: 2px solid ${bgColor};
+//   border-radius: 3px;
+// `;
+// div containers
 
 // export const layout = css`
 //    display: flex;

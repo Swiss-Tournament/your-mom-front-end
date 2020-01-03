@@ -1,5 +1,4 @@
-.overlay-background {
-  background-color: gray;
+.overlayBackground {
   display: flex;
   width: 100%;
   flex-direction: column;
