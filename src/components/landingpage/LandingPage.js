@@ -1,5 +1,4 @@
 import React from "react";
-import Navigation from "../navigation/Nav";
 // import {Link} from 'react-router-dom'
 import "./landingpage.css";
 import Forest from "../../assets/Forest-Art-Theros.jpg";
@@ -12,7 +11,6 @@ export default function LandingPage() {
   return (
     <div>
       {/* <nav>This is a holding spot for the nav</nav> */}
-      <Navigation />
       <div className='overlay-background'>
         <div className='flex'>
           <div className='events'>
