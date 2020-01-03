@@ -16,8 +16,12 @@ function Listing({ places }) {
           <GameListing key={place.id}>
             <Heading>{place.name}</Heading>
             <Paragraph>{place.location}</Paragraph>
-            <Paragraph>{newDate}</Paragraph>
-            <Link to={`/events/${place.id}`}>Join the Event!</Link>
+            <Paragraph>Date: {newDate}</Paragraph>
+            <Link to={`/events/${place.id}`}>
+              <EventLink>
+                Join the Event!
+              </EventLink>
+            </Link>
           </GameListing>
         );
       })}
@@ -42,18 +46,19 @@ const GameListing = styled.div`
   height: 100%;
 `;
 
-const Heading = styled.h2`
-  font-size: 1.6rem;
+const Heading = styled.h1`
+  font-size: 3rem;
   font-weight: 600;
   padding: none;
 `;
 
 const Paragraph = styled.p`
-  font-size: 1.4rem;
+  font-size: 1.6rem;
+  margin: 1% auto;
   padding: none;
 `;
 
-const EventLink = styled.a`
+const EventLink = styled.h3`
   text-decoration: none;
   color: blue;
   cursor: pointer;
