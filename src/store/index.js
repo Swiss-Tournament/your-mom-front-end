@@ -5,10 +5,12 @@ import logger from 'redux-logger';
 
 //import reducers
 import auth from './auth/reducer';
+import event from "./event/reducer";
 
 //combine reducers
 const rootReducer = combineReducers({
-   auth
+   auth,
+   event
 });
 
 //apply middleware
