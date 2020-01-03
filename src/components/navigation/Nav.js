@@ -27,22 +27,27 @@ import CreateEvent from "../UserAccess/CreateEvent";
 const NewNav = styled(Nav)`
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   width: 100%;
-  background: black;
-  height: 50px;
+  // changed background color.
+  background: #0c0c0b;
+  // added nav height.
+  height: 100px;
 `;
 
 const NewLinks = styled(NavLink)`
   color: white;
   text-decoration: none;
   font-size: 2rem;
+  // added padding.
   padding-top: 25px;
 `;
 
 const NewDropToggle = styled(DropdownToggle)`
   color: white;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  // added padding.
   padding-top: 25px;
 `;
 

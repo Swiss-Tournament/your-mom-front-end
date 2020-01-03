@@ -1,5 +1,4 @@
 import React from "react";
-// import {Link} from 'react-router-dom'
 import "./landingpage.css";
 import Forest from "../../assets/Forest-Art-Theros.jpg";
 import Island from "../../assets/Island-2-Amonkhet-MtG-Art.jpg";
