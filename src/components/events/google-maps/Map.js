@@ -3,17 +3,6 @@ import { GoogleMap, Marker, InfoWindow } from 'react-google-maps';
 import styled from 'styled-components'
 import axios from 'axios';
 
-const Modal = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-width: 6rem;
-  width: 100%;
-  min-height: 10rem;
-  height: 100%;
-`
-
 function Map({ coordinates, places }) {
   const [selectedPlace, setSelectedPlace] = useState(null)
   const [defaultPosition, setDefaultPosition] = useState({
@@ -56,3 +45,14 @@ function Map({ coordinates, places }) {
 }
 
 export default Map;
+
+const Modal = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 6rem;
+  width: 100%;
+  min-height: 10rem;
+  height: 100%;
+`

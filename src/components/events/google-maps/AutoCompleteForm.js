@@ -11,26 +11,6 @@ function AutoCompleteForm({ address, setAddress, coordinates, setCoordinates }) 
     setCoordinates(latLng);
   };
 
-  const inputStyles = {
-    width: '24rem',
-    height: '2.5rem',
-    margin: '1% auto',
-    paddingLeft: '3%',
-    border: '1px black solid',
-  }
-
-  const SuggestionContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 75%;
-    min-height: 10rem;
-    height: 100%;
-    margin: 1% auto;
-    cursor: pointer;
-  `
-
   return (
     <>
       <PlacesAutocomplete
@@ -66,3 +46,24 @@ function AutoCompleteForm({ address, setAddress, coordinates, setCoordinates }) 
 }
 
 export default AutoCompleteForm;
+
+
+const inputStyles = {
+  width: '24rem',
+  height: '2.5rem',
+  margin: '1% auto',
+  paddingLeft: '3%',
+  border: '1px black solid',
+}
+
+const SuggestionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  min-height: 10rem;
+  height: 100%;
+  margin: 1% auto;
+  cursor: pointer;
+`

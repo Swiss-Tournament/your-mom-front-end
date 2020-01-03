@@ -3,6 +3,28 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import EventPage from './EventPage/EventPage'
 
+function Listing({ places }) {
+  console.log(places)
+  return (
+    <>
+      {places.map(place => {
+        return (
+          <GameListing key={place.id}>
+            <Heading>{place.name}</Heading>
+            <Paragraph>{place.location}</Paragraph>
+            <Link to={`/events/${place.id}`}>
+              <EventPage key={place.id} />
+              Join Event!
+            </Link>
+          </GameListing>
+        )
+      })}
+    </>
+  )
+}
+
+export default Listing;
+
 const GameListing = styled.div`
   display: flex;
   flex-direction: column;
@@ -38,25 +60,3 @@ const EventLink = styled.a`
    transform: scale(1.02);
   }
 `
-
-function Listing({ places }) {
-  console.log(places)
-  return (
-    <>
-      {places.map(place => {
-        return (
-          <GameListing key={place.id}>
-            <Heading>{place.name}</Heading>
-            <Paragraph>{place.location}</Paragraph>
-            <Link to={`/events/${place.id}`}>
-              <EventPage key={place.id} />
-              Join Event!
-            </Link>
-          </GameListing>
-        )
-      })}
-    </>
-  )
-}
-
-export default Listing;

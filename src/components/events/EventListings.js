@@ -9,23 +9,6 @@ import Listing from './Listing';
 
 const WrappedMap = withScriptjs(withGoogleMap(Map))
 
-const EventsContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-`
-
-const ListingsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin: 1% 0;
-  padding: 1rem;
-`
-
 function EventListings() {
   const [places, setPlaces] = useState([])
   const [address, setAddress] = useState("");
@@ -66,3 +49,20 @@ function EventListings() {
 };
 
 export default EventListings;
+
+const EventsContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+`
+
+const ListingsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 1% 0;
+  padding: 1rem;
+`
