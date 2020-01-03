@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getUserToken } from "./routes/userAPI";
 import {
   Nav,
@@ -20,7 +20,7 @@ const NewNav = styled(Nav)`
 `;
 
 const NewLinks = styled(NavLink)`
-  font-color: white;
+  color: white;
   text-decoration: none;
   font-size: 1.5rem;
 `;
@@ -49,8 +49,12 @@ const Navigation = () => {
             Login
           </DropdownToggle>
           <DropdownMenu>
-            <DropdownItem header>LogOut</DropdownItem>
-            <DropdownItem disabled>Register</DropdownItem>
+            <DropdownItem tag={Link} to="/login">
+              Login
+            </DropdownItem>
+            <DropdownItem tag={Link} to="/register">
+              Register
+            </DropdownItem>
 
             <DropdownItem divider />
           </DropdownMenu>
