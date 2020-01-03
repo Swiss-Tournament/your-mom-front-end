@@ -1,16 +1,24 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 import ActionsContext from "../context/Actions";
 import useActions from "../store/useActions";
 import Navigation from "../components/navigation/Nav";
 
-function App() {
-   const actions = useActions();
+import LandingPage from "../components/landingpage/LandingPage";
 
-   return (
-      <ActionsContext.Provider value={actions}>
-        <Navigation />
-      </ActionsContext.Provider>
-   );
+// global styling
+import GlobalStyle from "../components/style-utils/GlobalStyle";
+
+function App() {
+  const actions = useActions();
+
+  return (
+    <ActionsContext.Provider value={actions}>
+      <div className='App'>
+        <GlobalStyle />
+        <LandingPage />
+      </div>
+    </ActionsContext.Provider>
+  );
 }
 
 export default App;
