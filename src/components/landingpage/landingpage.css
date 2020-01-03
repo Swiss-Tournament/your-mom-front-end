@@ -20,6 +20,7 @@
   flex-direction: column;
   width: 50%;
   align-items: center;
+  /* added new background color. this changes the img sizes if removed. */
   border-right: 0.3rem solid #0c0c0b;
 }
 

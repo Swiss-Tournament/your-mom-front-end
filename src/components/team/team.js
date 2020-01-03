@@ -1,0 +1,43 @@
+import React from "react";
+
+import image from "../../assets/team-photo/image.png";
+
+import styled from "styled-components";
+import {
+  bodyFont,
+  colors,
+  headerFont,
+  MIN_WIDTH,
+  MAX_WIDTH
+} from "../style-utils/variables";
+
+// page container
+const TeamContainer = styled.div`
+  background-color: ${colors.bodyColor};
+`;
+// photo styling.
+const TeamPhoto = styled.img`
+  width: 100%;
+  padding: 10px;
+`;
+const TeamName = styled.h1`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export default function Team() {
+  return (
+    <TeamContainer>
+      <div className='team-wrapper'>
+        <div className='individual-card'>
+          <TeamName>Bad News Bears Crew</TeamName>
+          <TeamPhoto
+            src={image}
+            alt='badnewsbearscrew'
+            className='team-photo'
+          />
+        </div>
+      </div>
+    </TeamContainer>
+  );
+}

@@ -69,7 +69,7 @@ export const colors = {
 };
 
 // buttons
-// const smallBtn = button`
+// const smallBtn = styled.button`
 //   color: palevioletred;
 //   font-size: 1em;
 //   margin: 1em;
