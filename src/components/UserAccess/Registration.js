@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
+import AuthActions from '../../context/Actions';
 
-const Registration = () => {
+const Registration = ({history}) => {
+
+   const { auth } = useContext(AuthActions);
 
     const { register, handleSubmit, errors } = useForm({
         validationSchema: RegistrationSchema
     });
-    const onSubmit = data => { console.log(data) }; 
+    const onSubmit = ({firstName, lastName, email, username, password, location}) => { 
+      console.log("Registering user...");
+      console.log({firstName, lastName, email, username, password, location}) 
+      auth.register({firstName, lastName, email, username, password, location}, history);
+   }; 
     
     return (
         <form className='registration' onSubmit={handleSubmit(onSubmit)}>
@@ -46,12 +53,13 @@ const Registration = () => {
 }
 
 const RegistrationSchema = yup.object().shape({
-    firstname: yup.string().required('This is a required field.').min(3),
-    lastname: yup.string().required('This is a required field.').min(3),
+    firstName: yup.string().required('This is a required field.').min(3),
+    lastName: yup.string().required('This is a required field.').min(3),
     email: yup.string().email('Enter a valid email address.').required('This is a required field.'),
     username: yup.string().required('This is a required field.').min(6).max(20),
     password: yup.string().required('Password is required.').min(8).max(20),
-    passwordConfirm: yup.string().oneOf([yup.ref('password'), null]).required('Password confirm is required')
+    passwordConfirm: yup.string().oneOf([yup.ref('password'), null]).required('Password confirm is required'),
+    location: yup.string()
 })
 
 export default Registration;

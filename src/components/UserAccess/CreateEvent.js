@@ -1,67 +1,85 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import * as yup from "yup";
+import React, { useState } from "react";
+// import { useSelector } from "react-redux";
+
+import axios from "axios";
 
 const CreateEvent = () => {
-  const { register, handleSubmit, watch, errors } = useForm({
-    validationSchema: CreateEventSchema
+  // Trued to use user in URl but did not work.
+
+  //   const user = useSelector(state => state.auth.user);
+  const [newEvent, setNewEvent] = useState({
+    name: " ",
+    date: " ",
+    location: " ",
+    // lat: 0,
+    // lng: 0,
+    public: false,
+    eventNotes: " "
   });
-  const onSubmit = data => {
-    console.log(data);
+
+  const handleChange = e => {
+    setNewEvent({ ...newEvent, [e.target.name]: e.target.value });
   };
 
-  console.log(watch("name"));
-  console.log(watch("name"));
-  console.log(watch("name"));
-  console.log(watch("name"));
+  const handleSubmit = e => {
+    e.preventDefault();
+    axios
+      .post(
+        `https://magic-the-gathering-tournament.herokuapp.com/api/event/10 , event `
+      )
+      .then(res => {
+        console.log("res", res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    setNewEvent({
+      name: " ",
+      date: " ",
+      location: " ",
+      eventNotes: " ",
+      //   lat: 0,
+      //   lng: 0,
+      public: false
+    });
+  };
+
+  console.log("Create Event", newEvent);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <h1>Create Event</h1>
-
-      <label htmlFor="name">Event Name</label>
-      <input name="name" id="name" ref={register} />
-      {errors.name && <p className="errors">{errors.name.message}</p>}
-      <label htmlFor="date">Event Date and Time:</label>
-      <input name="date" id="date" ref={register} />
-      {errors.date && <p className="errors">{errors.date.message}</p>}
-
-      <label htmlFor="location">Event Location:</label>
-      <input type="location" name="location" id="location" ref={register} />
-      {errors.location && <p className="errors">{errors.location.message}</p>}
-
-      <label htmlFor="eventNotes">Event details</label>
+    <form onSubmit={handleSubmit}>
+      <label>Event Name</label>
       <input
-        type="eventNotes"
-        name="eventNotes"
-        id="eventNotes"
-        ref={register}
+        type="text"
+        name="name"
+        value={newEvent.name}
+        onChange={handleChange}
       />
-      {errors.eventNotes && (
-        <p className="errors">{errors.eventNotes.message}</p>
-      )}
+      <label>Event Date and Time</label>
+      <input
+        type="text"
+        name="date"
+        value={newEvent.date}
+        onChange={handleChange}
+      />
+      <label>Event Location</label>
+      <input
+        type="text"
+        name="location"
+        value={newEvent.location}
+        onChange={handleChange}
+      />
+      <label>Event Notes</label>
+      <input
+        type="textarea"
+        name="eventNotes"
+        value={newEvent.eventNotes}
+        onChange={handleChange}
+      />
 
-      <input type="submit" />
+      <button type="submit">Submit</button>
     </form>
   );
 };
-
-const CreateEventSchema = yup.object().shape({
-  name: yup
-    .string()
-    .required("This is a required field.")
-    .min(3),
-  date: yup
-    .string()
-    // .date("Enter a valid date.")
-    .required("Event Date is required."),
-
-  location: yup
-    .string()
-    .required("Event Location is required.")
-    .min(8)
-    .max(20),
-  eventNotes: yup.string().min(3)
-});
 
 export default CreateEvent;
