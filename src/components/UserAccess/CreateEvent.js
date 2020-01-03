@@ -11,8 +11,6 @@ const CreateEvent = () => {
     name: " ",
     date: " ",
     location: " ",
-    // lat: 0,
-    // lng: 0,
     public: false,
     eventNotes: " ",
     eventPlayers: "",

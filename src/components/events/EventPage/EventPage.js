@@ -2,9 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import EventInfo from './event-page-components/EventInfo';
 import EventRules from './event-page-components/EventRules';
+import EventTimer from './event-page-components/EventTimer';
 
 const EventPage = () => {
 	return (
+		<>
+		<EventTimer />
 		<EventWrapper>
 			<EventInfo 
                 admin="admin" 
@@ -24,6 +27,7 @@ const EventPage = () => {
 				</Scoreboard>
 			</PlayersAndScores>
 		</EventWrapper>
+		</>
 	);
 };
 
