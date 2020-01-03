@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import ActionsContext from "../context/Actions";
 import useActions from "../store/useActions";
-import EventRules from './events/eventpage/event-page-components/EventRules.js';
 
 function App() {
    const actions = useActions();
@@ -11,7 +10,6 @@ function App() {
          <div className="App">
             <h1>Hello You</h1>
          </div>
-         <EventRules />
       </ActionsContext.Provider>
       
    );
