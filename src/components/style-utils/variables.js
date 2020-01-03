@@ -2,12 +2,10 @@
 export const MAX_WIDTH = "1040px";
 export const MIN_WIDTH = "400px";
 
-//*** Fonts ***//
+// MAGIC FONTS
 export const headerFont = `'Almendra SC', serif`;
 export const bodyFont = `'Almendra', serif`;
-// MAGIC FONTS
-// font-family: 'Almendra', serif;
-// font-family: 'Almendra SC', serif;
+
 //*** Colors ***//
 const palette = [
   "#808C77", // forestGreen [0]
@@ -71,7 +69,7 @@ export const colors = {
 };
 
 // buttons
-// const Button = styled.button`
+// const smallBtn = button`
 //   color: palevioletred;
 //   font-size: 1em;
 //   margin: 1em;
@@ -79,4 +77,7 @@ export const colors = {
 //   border: 2px solid ${bgColor};
 //   border-radius: 3px;
 // `;
-// div containers
+
+// export const buttons = {
+//   smallBtn
+// };
