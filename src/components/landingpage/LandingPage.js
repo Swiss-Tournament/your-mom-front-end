@@ -30,7 +30,7 @@ export default function LandingPage() {
               <h3 className='overlay'>Upcoming Events</h3>
             </div>
             <div className='card left'>
-              <img src={Swamp} alt='swamp mtg card' class='image' />
+              <img src={Swamp} alt='swamp mtg card' className='image' />
               <h3 className='overlay'>Register An Event</h3>
             </div>
           </div>
@@ -42,20 +42,20 @@ export default function LandingPage() {
                 title='link to magic news'
                 href='https://magic.wizards.com/en/articles'
               >
-                <img src={Plains} alt='plains mtg card' class='image' />
+                <img src={Plains} alt='plains mtg card' className='image' />
                 <h3 className='overlay'>Magic News</h3>
               </a>
             </div>
             <div className='card right'>
               <a title='link to scryfall' href='https://scryfall.com/'>
-                <img src={Forest} alt='forest mtg card' class='image' />
+                <img src={Forest} alt='forest mtg card' className='image' />
                 <h3 className='overlay'>Card DataBase</h3>
               </a>
             </div>
           </div>
         </div>
         <div className='leaderboard card'>
-          <img src={Panarama} alt='land panarama' class='image' />
+          <img src={Panarama} alt='land panarama' className='image' />
           <h3 className='overlay'>Leaderboard Coming Soon!</h3>
         </div>
       </div>
