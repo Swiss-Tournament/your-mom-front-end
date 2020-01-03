@@ -2,7 +2,7 @@ import React, {useContext, useEffect} from 'react';
 import styled from 'styled-components';
 import EventInfo from './event-page-components/EventInfo';
 import EventRules from './event-page-components/EventRules';
-import EventTimer from './event-page-components/EventTimer';
+// import EventTimer from './event-page-components/EventTimer';
 import {useSelector} from "react-redux";
 import ActionsContext from '../../../context/Actions';
 
@@ -17,7 +17,7 @@ const EventPage = ({match: {params: {id}}}) => {
 
 	return (
 		<>
-		<EventTimer />
+		{/* <EventTimer /> */}
 		<EventWrapper>
 			<EventInfo 
                 admin="admin" 
