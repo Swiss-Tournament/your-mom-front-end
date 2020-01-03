@@ -18,7 +18,7 @@ export default function LandingPage() {
           <div className='events'>
             <h2>Events</h2>
             <div className='card left'>
-              <img src={Island} alt='island mtg card' class='image' />
+              <img src={Island} alt='island mtg card' className='image' />
               <h3 className='overlay'>Upcoming Events</h3>
             </div>
             <div className='card left'>

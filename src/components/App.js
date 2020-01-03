@@ -4,7 +4,7 @@ import useActions from "../store/useActions";
 
 import LandingPage from "../components/landingpage/LandingPage";
 
-// import { createGlobalStyle } from "styled-components";
+// global styling
 import GlobalStyle from "../components/style-utils/GlobalStyle";
 
 function App() {

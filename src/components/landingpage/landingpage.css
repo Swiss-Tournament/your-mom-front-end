@@ -1,29 +1,37 @@
-.overlayBackground {
+/* * {
+  box-sizing: border-box;
+} */
+
+/* body {
+  background-color: black;
+} */
+
+.overlay-background {
+  background-color: gray;
   display: flex;
   width: 100%;
   flex-direction: column;
 }
-/* parent */
+
 .flex {
   display: flex;
 }
-/* category left side */
+
 .events {
   display: flex;
   flex-direction: column;
   width: 50%;
   align-items: center;
-  padding: 20px;
+  border-right: 0.3rem solid black;
 }
-/* category right side */
+
 .magic-info {
   display: flex;
   flex-direction: column;
   width: 50%;
   align-items: center;
-  padding: 20px;
 }
-/* individual card layout */
+
 .card {
   border: 0.2rem solid black;
   position: relative;
@@ -36,7 +44,7 @@
 .card:hover .overlay {
   opacity: 0;
 }
-/* all images */
+
 .image {
   display: block;
   width: 100%;
@@ -56,4 +64,8 @@
   font-size: 1.5rem;
   padding: 2rem;
   text-align: center;
+}
+
+.footer {
+  color: gray;
 }

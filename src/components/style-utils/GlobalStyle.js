@@ -23,7 +23,7 @@ export default createGlobalStyle`
    html, body {
       font-family: ${bodyFont};
       color: ${colors.bodyColor};
-      /* background-color: ${colors.bgColor}; */
+      // background-color: ${colors.bgColor};
    }
 
    body {

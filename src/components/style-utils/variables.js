@@ -10,17 +10,16 @@ export const bodyFont = `'Almendra', serif`;
 // font-family: 'Almendra SC', serif;
 //*** Colors ***//
 const palette = [
-  "#808C77",
-  "#D9BE3B",
-  "#D9B64E",
-  "#BF5B04",
-  "#592202",
-  "#262621"
+  "#808C77", // forestGreen [0]
+  "#D9BE3B", // brightYellow [1]
+  "#D9B64E", // goldenYellow [2]
+  "#BF5B04", // autumOrange [3]
+  "#592202", // burgundyRed [4]
+  "#262621" // darkBrown [5]
 ];
-
 const alpha = "b2";
-// ***New Color Themes*** ///
-/* Color Theme Swatches in Hex */
+// ***New Color Themes for MTG APP*** ///
+/* Color Theme Swatches in Hex MTG APP */
 // Regular Magic The Gathering theme
 // const forestGreen: #808C77;
 // const brightYellow: #D9BE3B;
@@ -35,13 +34,13 @@ const attentionBorder = palette[1];
 const subtleBorder = palette[2];
 const bgColor = palette[2];
 const accent = palette[4];
-const darkText = palette[0];
-const lightText = palette[3];
-// new color
-const darkBckgrnd = palette[5];
+const darkText = palette[1];
+const lightText = palette[1];
+const darkBckgrnd = palette[5]; // new color for Named Colors
+
 // in global styles
 const headerColor = darkText;
-const bodyColor = darkText;
+const bodyColor = lightText;
 // in global styles can change properties but not the name.
 const overlayBackground = [
   accent + alpha,
@@ -61,6 +60,7 @@ export const colors = {
   accent,
   darkText,
   lightText,
+  darkBckgrnd,
   headerColor,
   bodyColor,
   overlayBackground,
