@@ -2,17 +2,9 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const EventRules = (props, status) => {
-	const [eventFormat, setEventFormat] = useState({});
+	const [eventFormat, setEventFormat] = useState([{}]);
 
 	const eventFormats = [
-		{
-			format: 'Standard',
-			sets:
-				'Throne of Eldrain, Core Set 2020, War of the Spark, Ravnica Allegiance, Guildf of Ravnica',
-			banned:
-				'Revised: November 18, 2019. Field of the Dead, Oko, Thief of Crowns, Once Upon a Time, Veil of Summer',
-			deckRules: `Your deck must be at least 60 cards. Up to fifteen cards may be included in your sideboard, if you use one. Include no more than four copies of any individual card in your main deck and sideboard combined (except basic lands). There's no maximum deck size, as long as you can shuffle your deck in your hands unassisted.`
-		},
 		{
 			format: 'Modern',
 			sets: `All standard releases from Eighth Edition forward`,
@@ -48,17 +40,29 @@ const EventRules = (props, status) => {
 			sets: `All standard releases from Return to Ravnica forward`,
 			banned: 'None',
 			deckRules: `Your deck must be at least 60 cards. Up to fifteen cards may be included in your sideboard, if you use one. Include no more than four copies of any individual card in your main deck and sideboard combined (except basic lands). There's no maximum deck size, as long as you can shuffle your deck in your hands unassisted.`
+		},
+		{
+			format: 'Standard',
+			sets:
+				'Throne of Eldrain, Core Set 2020, War of the Spark, Ravnica Allegiance, Guildf of Ravnica',
+			banned:
+				'Revised: November 18, 2019. Field of the Dead, Oko, Thief of Crowns, Once Upon a Time, Veil of Summer',
+			deckRules: `Your deck must be at least 60 cards. Up to fifteen cards may be included in your sideboard, if you use one. Include no more than four copies of any individual card in your main deck and sideboard combined (except basic lands). There's no maximum deck size, as long as you can shuffle your deck in your hands unassisted.`
 		}
 	];
 
-	useEffect(() => {
-		eventFormats.forEach(item => {
-			if (props.format === item.format) {
-				setEventFormat(item);
-			}
-		});
-	}, []);
-
+	useEffect(
+		() => {
+			eventFormats.map(item => {
+				if (item.format === props.data.gameFormat) {
+					setEventFormat(item);
+				}
+				return console.log('Watch', props.data.gameFormat, item.format);
+			});
+		},
+		[props.data.gameFormat]
+	);
+	
 	return (
 		<RulesWrapper>
 			<h1>Event Deck Construction Rules</h1>
@@ -93,7 +97,7 @@ const RulesWrapper = styled.div`
 	height: 100%;
 	margin: 1% auto;
 	padding: 2%;
-`
+`;
 
 const DataWrapper = styled.div`
 	display: flex;
@@ -101,10 +105,10 @@ const DataWrapper = styled.div`
 	align-items: flex-start;
 	margin: 1% auto;
 	width: 95%;
-`
+`;
 
 const Paragraph = styled.p`
-  font-size: 1.6rem;
-  margin: 1% auto;
-  padding: none;
+	font-size: 1.6rem;
+	margin: 1% auto;
+	padding: none;
 `;
