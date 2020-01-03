@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
 const EventRules = (props, status) => {
 	const [eventFormat, setEventFormat] = useState({});
@@ -59,22 +60,51 @@ const EventRules = (props, status) => {
 	}, []);
 
 	return (
-		<div className="rules-container">
+		<RulesWrapper>
 			<h1>Event Deck Construction Rules</h1>
-			<p>
-				Format: {eventFormat.format}
-			</p>
-			<p>
-				Legal Sets: {eventFormat.sets}
-			</p>
-			<p>
-				Banned/Restricted Cards: {eventFormat.banned}
-			</p>
-			<p>
-				Deck Construction Rules: {eventFormat.deckRules}
-			</p>
-		</div>
+			<DataWrapper>
+				<Paragraph>
+					Format: {eventFormat.format}
+				</Paragraph>
+				<Paragraph>
+					Legal Sets: {eventFormat.sets}
+				</Paragraph>
+				<Paragraph>
+					Banned/Restricted Cards: {eventFormat.banned}
+				</Paragraph>
+				<Paragraph>
+					Deck Construction Rules: {eventFormat.deckRules}
+				</Paragraph>
+			</DataWrapper>
+		</RulesWrapper>
 	);
 };
 
 export default EventRules;
+
+const RulesWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	border: 2px solid black;
+	width: 95%;
+	min-height: 40vh;
+	height: 100%;
+	margin: 1% auto;
+	padding: 2%;
+`
+
+const DataWrapper = styled.div`
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin: 1% auto;
+	width: 95%;
+`
+
+const Paragraph = styled.p`
+  font-size: 1.6rem;
+  margin: 1% auto;
+  padding: none;
+`;
