@@ -14,7 +14,9 @@ const CreateEvent = () => {
     // lat: 0,
     // lng: 0,
     public: false,
-    eventNotes: " "
+    eventNotes: " ",
+    eventPlayers: "",
+    format: ""
   });
 
   const handleChange = e => {
@@ -79,10 +81,21 @@ const CreateEvent = () => {
       <Input
         type="text"
         name="eventPlayers"
-        value={newEvent.players}
+        value={newEvent.eventPlayers}
         onChange={handleChange}
         required
       />
+
+      <Select name="format" onChange={handleChange} required>
+        <option value="" disabled>Choose Format...</option>
+        <option value="Standard">Standard</option>
+        <option value="Modern">Modern</option>
+        <option value="Legacy">Legacy</option>
+        <option value="Vintage">Vintage</option>
+        <option value="Block">Block</option>
+        <option value="Pauper">Pauper</option>
+        <option value="Pioneer">Pioneer</option>
+      </Select>
 
       <Button type="submit">Submit</Button>
     </Form>
@@ -107,6 +120,16 @@ const Form = styled.form`
 `
 
 const Input = styled.input`
+    max-width: 40rem;
+    width: 100%;
+    min-height: 4rem;
+    height: 100%;
+    padding: 1%;
+    margin: 1.5% auto;
+    font-size: 1.4rem;
+`
+
+const Select = styled.select`
     max-width: 40rem;
     width: 100%;
     min-height: 4rem;
