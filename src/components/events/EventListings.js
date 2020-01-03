@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { withScriptjs, withGoogleMap } from 'react-google-maps';
 import axios from 'axios';
 import styled from 'styled-components';
-import { colors } from '../style-utils/variables';
 import AutoCompleteForm from './google-maps/AutoCompleteForm';
 import Map from './google-maps/Map';
 import Listing from './Listing';
