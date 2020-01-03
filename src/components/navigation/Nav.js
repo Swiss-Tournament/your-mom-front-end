@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
 import { getUserToken } from "./routes/userAPI";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faHatWizard } from "@fortawesome/free-solid-svg-icons";
 import {
   Nav,
   NavItem,
@@ -12,7 +12,17 @@ import {
   DropdownMenu,
   NavLink
 } from "reactstrap";
+// styles
 import styled from "styled-components";
+
+// route components
+import LandingPage from "../landingpage/LandingPage";
+// import Team from "";
+// import EventListings from "../events/EventPage/EventPage";
+// import Login from "../UserAccess/Login";
+// import Logout from "../routes/UserLogOut";
+// import Register from "../UserAccess/Registration"
+// import create-event from "../UserAccess/Registration";
 
 const NewNav = styled(Nav)`
   display: flex;
@@ -56,7 +66,8 @@ const Navigation = () => {
         </NavItem>
         <Dropdown nav isOpen={dropdownOpen} toggle={toggle}>
           <NewDropToggle nav caret>
-            <FontAwesomeIcon icon={faUser} size="1x" color="white" />
+            {/* <FontAwesomeIcon icon={faUser} size="1x" color="white" /> */}
+            <FontAwesomeIcon icon={faHatWizard} size="1x" color="white" />
           </NewDropToggle>
           <DropdownMenu>
             {!UserSignedIn && (
@@ -64,33 +75,32 @@ const Navigation = () => {
                 Login
               </DropdownItem>
             )}
-            {!UserSignedIn && (
-              <DropdownItem tag={Link} to="/register">
-                Register
+              // {/* )} */}
+              // {/* {UserSignedIn && ( */}
+              <DropdownItem tag={Link} to='/user/:id/my-events'>
+                My Events
               </DropdownItem>
-            )}
-            {/* {UserSignedIn && ( */}
-            <DropdownItem tag={Link} to="/logout">
-              Logout
-            </DropdownItem>
-            {/* )} */}
-            {/* {UserSignedIn && ( */}
-            <DropdownItem tag={Link} to="/create-event">
-              Create Event
-            </DropdownItem>
-            {/* )} */}
-            {/* {UserSignedIn && ( */}
-            <DropdownItem tag={Link} to="/user/:id/my-events">
-              My Events
-            </DropdownItem>
-            {/* )} */}
+              // {/* )} */}
 
-            <DropdownItem divider />
-          </DropdownMenu>
-        </Dropdown>
+              <DropdownItem divider />
+            </DropdownMenu>
+          </Dropdown>
 
-        {/* <NavLink to="/login">Login</NavLink> */}
-      </NewNav>
+          {/* <NavLink to="/login">Login</NavLink> */}
+        </NewNav>
+
+        <Switch>
+          <Route exact path='/' component={LandingPage} />
+          {/* <Route path='/team' component={Team} /> */}
+          {/* <Route path='/events' component={EventListings} /> */}
+          {/* <Route path='/events/:id' component={EventPage} */}
+          {/* <Route path='/login' component={Login} /> */}
+          {/* <Route path='/logout' component={Logout} /> */}
+          {/* <Route path='/register' component={Registration} /> */}
+          {/* <Route path='/create-event' component={Registration} /> */}
+          {/* <Route path='/user/:id/my-events' component={Registration} /> */}
+        </Switch>
+      
     </div>
   );
 };
