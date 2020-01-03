@@ -16,9 +16,11 @@ import {
 import styled from "styled-components";
 
 // route components
-// import LandingPage from "../landingpage/LandingPage";
+import LandingPage from "../landingpage/LandingPage";
 // import Team from "";
 // import EventListings from "../events/EventPage/EventPage";
+// import Login from "../UserAccess/Login";
+// import Registration from "../UserAccess/Registration";
 
 const NewNav = styled(Nav)`
   display: flex;
@@ -100,11 +102,15 @@ const Navigation = () => {
         </NewNav>
 
         <Switch>
-          {/* <Route exact path='/' component={LandingPage} /> */}
+          <Route exact path='/' component={LandingPage} />
           {/* <Route path='/team' component={Team} /> */}
           {/* <Route path='/events' component={EventListings} /> */}
-          {/* <Route path='/team' component={} /> */}
-          {/* <Route path='/team' component={} /> */}
+          {/* <Route path='/events/:id' component={EventPage} */}
+          {/* <Route path='/login' component={Login} /> */}
+          {/* <Route path='/logout' component={Logout} /> */}
+          {/* <Route path='/register' component={Registration} /> */}
+          {/* <Route path='/create-event' component={Registration} /> */}
+          {/* <Route path='/user/:id/my-events' component={Registration} /> */}
         </Switch>
       </BrowserRouter>
     </div>
