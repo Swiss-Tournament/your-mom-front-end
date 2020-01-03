@@ -3,8 +3,6 @@ import ActionsContext from "../context/Actions";
 import useActions from "../store/useActions";
 import Navigation from "../components/navigation/Nav";
 
-import LandingPage from "../components/landingpage/LandingPage";
-
 // global styling
 import GlobalStyle from "../components/style-utils/GlobalStyle";
 
@@ -13,10 +11,8 @@ function App() {
 
   return (
     <ActionsContext.Provider value={actions}>
-      <div className='App'>
-        <GlobalStyle />
-        <LandingPage />
-      </div>
+      <GlobalStyle />
+      <Navigation />
     </ActionsContext.Provider>
   );
 }
