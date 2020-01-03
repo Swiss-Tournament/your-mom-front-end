@@ -4,11 +4,11 @@ import reduxThunk from 'redux-thunk';
 import logger from 'redux-logger';
 
 //import reducers
-import authReducer from './auth/reducer';
+import auth from './auth/reducer';
 
 //combine reducers
 const rootReducer = combineReducers({
-   authReducer
+   auth
 });
 
 //apply middleware

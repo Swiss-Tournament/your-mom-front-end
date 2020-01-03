@@ -14,6 +14,7 @@ import {
 } from "reactstrap";
 // styles
 import styled from "styled-components";
+import { clearToken } from '../../utils/axiosWithAuth'
 
 // route components
 import LandingPage from "../landingpage/LandingPage";
@@ -105,7 +106,6 @@ const Navigation = () => {
             <NewLinks href='/team'>Team</NewLinks>
           </NavItem>
           <NavItem>
-            {UserSignedIn && <NavLink href="/events">Events</NavLink>}
             <NewLinks href='/events'>Events</NewLinks>
           </NavItem>
           <Dropdown nav isOpen={dropdownOpen} toggle={toggle}>
@@ -120,17 +120,21 @@ const Navigation = () => {
               )}
 
               {UserSignedIn && (
-              <NewDropDownItem tag={Link} to='/user/:id/my-events'>
-                My Events
-              </NewDropDownItem>
-
+                <>
+                <NewDropDownItem tag={Link} to='/user/:id/my-events'>
+                  My Events
+                </NewDropDownItem>
+                <NewDropDownItem tag={Link} to='/login' onClick={clearToken}>
+                  Logout
+                </NewDropDownItem>
+                </>
               )}
               <DropdownItem divider />
             </DropdownMenu>
           </Dropdown>
 
           <NavLink to="/login">Login</NavLink>
-        
+          
         </LinkWrapper>
       </NewNav>
 

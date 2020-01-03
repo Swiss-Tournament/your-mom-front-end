@@ -6,7 +6,9 @@ import styled from 'styled-components';
 import * as yup from 'yup';
 import AuthActions from '../../context/Actions';
 
-const Login = () => {
+const Login = ({ history }) => {
+    const error = useSelector(state => state.auth.error)
+    console.log(error)
 
     const { register, handleSubmit, errors } = useForm({
         validationSchema: LoginSchema
@@ -16,12 +18,15 @@ const Login = () => {
 
     const onSubmit = data => { 
         console.log('Before Submit', data);
-        auth.login(data) }; 
+        auth.login(data, history) }; 
     
     return (
         <Form className='login' onSubmit={handleSubmit(onSubmit)}>
             <h1>Sign In</h1>
             <HR />
+            {error && (
+                <Paragraph>{error.data.message}</Paragraph>
+            )}
             <label>E-mail:</label>
             <Input name='email' id='email'  ref={register} />
             {errors.email && <p className='errors'>{errors.email.message}</p>}
@@ -92,3 +97,10 @@ const HR = styled.hr`
     border: .3rem solid black;
     border-radius: 20px;
 `
+
+const Paragraph = styled.p`
+  font-size: 1.6rem;
+  margin: 1% auto;
+  padding: none;
+  color: red;
+`;

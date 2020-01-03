@@ -14,6 +14,7 @@ const useAuthActions = () => {
    };
    const updateUser = ({data: {id, username}}) => {
       dispatch({type: LOGIN_SUCCESS, payload: {id, username}});
+      return Promise.resolve();
    };
    
    const autoLogin = useCallback(() => {
@@ -32,13 +33,16 @@ const useAuthActions = () => {
       }
    }, [dispatch]);
 
-   const login = useCallback((credentials) => {
+   const login = useCallback((credentials, history) => {
       dispatch({type: LOGIN_START});
 
       axiosWithAuth()
          .post("/auth/login", credentials)
          .then(authSuccess)
          .then(updateUser)
+         .then(() => {
+            if (history) history.push("/")
+          })
          .catch(error => {
             console.error(error.response);
             dispatch({type: AUTH_ERROR, payload: error.response});
