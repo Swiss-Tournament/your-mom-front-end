@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { GoogleMap, Marker, InfoWindow } from 'react-google-maps';
 import styled from 'styled-components';
-import axios from 'axios';
 
 function Map({ coordinates, places }) {
   const [selectedPlace, setSelectedPlace] = useState(null)

@@ -1,15 +1,7 @@
 import React from "react";
-
 import image from "../../assets/team-photo/image.png";
-
 import styled from "styled-components";
-import {
-  bodyFont,
-  colors,
-  headerFont,
-  MIN_WIDTH,
-  MAX_WIDTH
-} from "../style-utils/variables";
+import { colors } from "../style-utils/variables";
 // styled components.
 
 // page container

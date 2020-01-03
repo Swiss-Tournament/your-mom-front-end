@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, Route, Switch } from "react-router-dom";
 import { getUserToken } from "./routes/userAPI";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faHatWizard } from "@fortawesome/free-solid-svg-icons";
+import { faHatWizard } from "@fortawesome/free-solid-svg-icons";
 import {
   Nav,
   NavItem,
@@ -14,6 +14,7 @@ import {
 } from "reactstrap";
 // styles
 import styled from "styled-components";
+import { clearToken } from '../../utils/axiosWithAuth'
 
 // route components
 import LandingPage from "../landingpage/LandingPage";
@@ -27,7 +28,7 @@ import Team from "../team/team";
 
 const NewNav = styled(Nav)`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   // changed background color to match global.
@@ -52,6 +53,36 @@ const NewDropToggle = styled(DropdownToggle)`
   padding-top: 25px;
 `;
 
+// const NewDropdownMenu = styled(DropdownMenu)`
+//   display: flex;
+//   justify-content: center;
+//   min-width: 30rem;
+//   width: 100%;
+//   min-height: 30rem;
+//   height: 100%;
+// `
+
+const NewDropDownItem = styled(DropdownItem)`
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: center;
+`
+
+const LogoWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top 1%;
+  width: 30%;
+`
+
+const LinkWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 40%;
+`
+
 const Navigation = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -62,39 +93,49 @@ const Navigation = () => {
   return (
     <div>
       <NewNav>
-        <NavItem>
-          <NewLinks href='/'>Home</NewLinks>
-        </NavItem>
-        <NavItem>
-          <NewLinks href='/team'>Team</NewLinks>
-        </NavItem>
-        <NavItem>
-          {/*  Commented out until link set up */}
-          {/* {UserSignedIn && <NavLinks href="/events">Events</NavLinks>} */}
-          <NewLinks href='/events'>Events</NewLinks>
-        </NavItem>
-        <Dropdown nav isOpen={dropdownOpen} toggle={toggle}>
-          <NewDropToggle nav caret>
-            {/* <FontAwesomeIcon icon={faUser} size="1x" color="white" /> */}
-            <FontAwesomeIcon icon={faHatWizard} size='1x' color='white' />
-          </NewDropToggle>
-          <DropdownMenu>
-            {!UserSignedIn && (
-              <DropdownItem tag={Link} to='/login'>
-                Login
-              </DropdownItem>
-            )}
+        <LogoWrapper>
+          <NavItem>
+            <h1>MTG Tourney</h1>
+          </NavItem>
+        </LogoWrapper>
+        <LinkWrapper>
+          <NavItem>
+            <NewLinks href='/'>Home</NewLinks>
+          </NavItem>
+          <NavItem>
+            <NewLinks href='/team'>Team</NewLinks>
+          </NavItem>
+          <NavItem>
+            <NewLinks href='/events'>Events</NewLinks>
+          </NavItem>
+          <Dropdown nav isOpen={dropdownOpen} toggle={toggle}>
+            <NewDropToggle nav caret>
+              <FontAwesomeIcon icon={faHatWizard} size='1x' color='white' />
+            </NewDropToggle>
+            <DropdownMenu>
+              {!UserSignedIn && (
+                <NewDropDownItem tag={Link} to='/login'>
+                  Login
+                </NewDropDownItem>
+              )}
 
-            {/* {UserSignedIn && ( */}
-            <DropdownItem tag={Link} to='/user/:id/my-events'>
-              My Events
-            </DropdownItem>
+              {UserSignedIn && (
+                <>
+                <NewDropDownItem tag={Link} to='/user/:id/my-events'>
+                  My Events
+                </NewDropDownItem>
+                <NewDropDownItem tag={Link} to='/login' onClick={clearToken}>
+                  Logout
+                </NewDropDownItem>
+                </>
+              )}
+              <DropdownItem divider />
+            </DropdownMenu>
+          </Dropdown>
 
-            <DropdownItem divider />
-          </DropdownMenu>
-        </Dropdown>
-
-        {/* <NavLink to="/login">Login</NavLink> */}
+          <NavLink to="/login">Login</NavLink>
+          
+        </LinkWrapper>
       </NewNav>
 
       <Switch>

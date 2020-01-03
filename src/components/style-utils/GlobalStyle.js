@@ -10,6 +10,7 @@ import {
 
 export default createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Almendra|Almendra+SC&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cabin:400,400i,600,700&display=swap');
    ${reset}
 
    * {

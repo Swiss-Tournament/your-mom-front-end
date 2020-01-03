@@ -56,11 +56,12 @@ const InputContainer = styled.div`
 `
 
 const inputStyles = {
-  width: '24rem',
-  height: '2.5rem',
+  minWidth: '35rem',
+  minHeight: '4rem',
   margin: '1% auto',
-  paddingLeft: '2%',
+  paddingLeft: '1%',
   border: '1px black solid',
+  fontSize: '1.4rem'
 }
 
 const SuggestionContainer = styled.div`
@@ -73,4 +74,5 @@ const SuggestionContainer = styled.div`
   height: 100%;
   margin: 1% auto;
   cursor: pointer;
+  font-size: 1.4rem;
 `
