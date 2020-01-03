@@ -4,7 +4,8 @@ export const MIN_WIDTH = "400px";
 
 // MAGIC FONTS
 export const headerFont = `'Almendra SC', serif`;
-export const bodyFont = `'Almendra', serif`;
+export const bodyFont = `'Cabin', sans-serif`;
+;
 
 //*** Colors ***//
 const palette = [
