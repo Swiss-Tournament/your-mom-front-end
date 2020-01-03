@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, Route, Switch } from "react-router-dom";
 import { getUserToken } from "./routes/userAPI";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faHatWizard } from "@fortawesome/free-solid-svg-icons";
+import { faHatWizard } from "@fortawesome/free-solid-svg-icons";
 import {
   Nav,
   NavItem,
@@ -53,14 +53,14 @@ const NewDropToggle = styled(DropdownToggle)`
   padding-top: 25px;
 `;
 
-const NewDropdownMenu = styled(DropdownMenu)`
-  display: flex;
-  justify-content: center;
-  min-width: 30rem;
-  width: 100%;
-  min-height: 30rem;
-  height: 100%;
-`
+// const NewDropdownMenu = styled(DropdownMenu)`
+//   display: flex;
+//   justify-content: center;
+//   min-width: 30rem;
+//   width: 100%;
+//   min-height: 30rem;
+//   height: 100%;
+// `
 
 const NewDropDownItem = styled(DropdownItem)`
   font-size: 1.6rem;

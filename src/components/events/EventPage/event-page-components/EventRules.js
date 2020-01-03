@@ -52,7 +52,7 @@ const EventRules = (props, status) => {
 	];
 
 	useEffect(() => {
-		eventFormats.map(item => {
+		eventFormats.forEach(item => {
 			if (props.format === item.format) {
 				setEventFormat(item);
 			}

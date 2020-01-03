@@ -1,6 +1,5 @@
 import createReducer from "../createReducer";
 import { LOGIN_START, LOGIN_SUCCESS, LOGIN_END, SIGNUP_START, SIGNUP_SUCCESS, AUTH_ERROR } from "./actionTypes";
-import useAuthActions from "./actions";
 
 const NO_ERRORS = null;
 const initialState = {

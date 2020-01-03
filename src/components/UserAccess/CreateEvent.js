@@ -1,11 +1,10 @@
 import React, { useState, useContext } from "react";
 import { useSelector } from "react-redux";
 import styled from 'styled-components';
-import axios from "axios";
 import ActionsContext from '../../context/Actions';
 
 const CreateEvent = () => {
-  const error = useSelector(state => state.event.error)
+  // const error = useSelector(state => state.event.error)
   const user = useSelector(state => state.auth.user)
   console.log(user)
 

@@ -2,7 +2,6 @@ import React, {useContext, useEffect} from 'react';
 import styled from 'styled-components';
 import EventInfo from './event-page-components/EventInfo';
 import EventRules from './event-page-components/EventRules';
-// import EventTimer from './event-page-components/EventTimer';
 import {useSelector} from "react-redux";
 import ActionsContext from '../../../context/Actions';
 
@@ -17,13 +16,13 @@ const EventPage = ({match: {params: {id}}}) => {
 
 	return (
 		<>
-		{/* <EventTimer /> */}
 		<EventWrapper>
 			<EventInfo 
                 admin="admin" 
                 eventDate='eventDate'
                 startTime='startTime'
-                location='location'/>
+                location='location'
+								data={data}/>
 			<EventRules format="format" />
 
 			<PlayersAndScores>

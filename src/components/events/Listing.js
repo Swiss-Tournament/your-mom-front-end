@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import EventPage from "./EventPage/EventPage";
 import Moment from "moment";
 
 function Listing({ places }) {
