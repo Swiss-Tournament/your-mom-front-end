@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import './landingpage.css'
 import Forest from '../../assets/Forest-Art-Theros.jpg'
 import Island from '../../assets/Island-2-Amonkhet-MtG-Art.jpg'
@@ -16,28 +17,32 @@ export default function LandingPage() {
                     <div className='events'>
                         <h2>Events</h2>
                         <div className='card left'>
-                            <img src={Island} alt="forest mtg card" class="image"/>
+                            <img src={Island} alt="island mtg card" class="image"/>
                             <h3 className='overlay'>Upcoming Events</h3>
                         </div>
                         <div className='card left'>
-                            <img src={Swamp} alt="forest mtg card" class="image"/>
+                            <img src={Swamp} alt="swamp mtg card" class="image"/>
                             <h3 className='overlay'>Register An Event</h3>
                         </div>
                     </div>
                     <div className='magic-info'>
                         <h2>Magic Info</h2>
                         <div className='card right'>
-                            <img src={Plains} alt="forest mtg card" class="image"/>
-                            <h3 className='overlay'>Magic News</h3>
+                            <a title="link to magic news" href="https://magic.wizards.com/en/articles">
+                                <img src={Plains} alt="plains mtg card" class="image"/>
+                                <h3 className='overlay'>Magic News</h3>
+                            </a>
                         </div>
                         <div className='card right'>
-                            <img src={Forest} alt="forest mtg card" class="image"/>
-                            <h3 className='overlay'>Card DataBase</h3>
+                            <a title="link to scryfall" href="https://scryfall.com/">
+                                <img src={Forest} alt="forest mtg card" class="image"/>
+                                <h3 className='overlay'>Card DataBase</h3>
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div className='leaderboard card'>
-                    <img src={Panarama} alt="forest mtg card" class="image"/>
+                    <img src={Panarama} alt="land panarama" class="image"/>
                     <h3 className='overlay'>Leaderboard Coming Soon!</h3>
                 </div> 
             </div>
