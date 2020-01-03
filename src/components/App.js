@@ -8,9 +8,7 @@ function App() {
 
    return (
       <ActionsContext.Provider value={actions}>
-         <div className="App">
-            <h1>Hello You</h1>
-         </div>
+         <EventListings />
       </ActionsContext.Provider>
    );
 }
