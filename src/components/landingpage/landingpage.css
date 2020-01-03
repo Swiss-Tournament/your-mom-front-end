@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+.overlay-background{
+    background-color: gray;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.flex {
+    display: flex;
+}
+
+.events {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    border-right: 0.3rem solid black;
+}
+
+.magic-info {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+}
+
+.card {
+    border: 0.2rem solid black;
+    position: relative;
+    margin: 10px;
+}
+.card .overlay {
+    opacity: 1;
+}
+
+.card:hover .overlay {
+    opacity: 0;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); /* Black see-through  */
+    color: #f1f1f1;
+    width: 100%;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    font-size: 1.5rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+.footer {
+    color: gray;
+}
+
+/*
+
+
+Container needed to position the overlay. Adjust the width as needed 
+.container {
+  position: relative;
+  width: 50%;
+  max-width: 300px;
+}
+
+ Make the image to responsive 
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+ The overlay effect - lays on top of the container and over the image
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); Black see-through 
+  color: #f1f1f1;
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+When you mouse over the container, fade in the overlay title 
+.container:hover .overlay {
+  opacity: 1;
+} 
+<div class="container">
+  <img src="img_avatar.png" alt="Avatar" class="image">
+  <div class="overlay">My Name is John</div>
+</div>
+*/
