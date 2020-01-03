@@ -17,12 +17,12 @@ import styled from "styled-components";
 
 // route components
 import LandingPage from "../landingpage/LandingPage";
-// import Team from "";
-// import EventListings from "../events/EventPage/EventPage";
-// import Login from "../UserAccess/Login";
-// import Logout from "../routes/UserLogOut";
-// import Register from "../UserAccess/Registration"
-// import create-event from "../UserAccess/Registration";
+import EventPage from "../events/EventPage/EventPage";
+import EventListings from "../events/EventListings";
+import Login from "../UserAccess/Login";
+import Logout from "./routes/UserLogOut";
+import Register from "../UserAccess/Registration"
+import CreateEvent from "../UserAccess/CreateEvent";
 
 const NewNav = styled(Nav)`
   display: flex;
@@ -91,14 +91,12 @@ const Navigation = () => {
 
         <Switch>
           <Route exact path='/' component={LandingPage} />
-          {/* <Route path='/team' component={Team} /> */}
-          {/* <Route path='/events' component={EventListings} /> */}
-          {/* <Route path='/events/:id' component={EventPage} */}
-          {/* <Route path='/login' component={Login} /> */}
-          {/* <Route path='/logout' component={Logout} /> */}
-          {/* <Route path='/register' component={Registration} /> */}
-          {/* <Route path='/create-event' component={Registration} /> */}
-          {/* <Route path='/user/:id/my-events' component={Registration} /> */}
+          <Route exact path='/events' component={EventListings} />
+          <Route path='/events/:id' component={EventPage} />
+          <Route path='/login' component={Login} />
+          <Route path='/logout' component={Logout} /> 
+          <Route path='/register' component={Register} />
+          <Route path='/create-event' component={CreateEvent} /> 
         </Switch>
       
     </div>

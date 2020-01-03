@@ -1,6 +1,6 @@
 import React from 'react';
-import EventInfo from 'EventInfo';
-import EventRules from 'EventRules';
+import EventInfo from './event-page-components/EventInfo';
+import EventRules from './event-page-components/EventRules';
 
 const EventPage = () => {
 	return (
