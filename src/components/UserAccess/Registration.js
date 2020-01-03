@@ -12,13 +12,13 @@ const Registration = () => {
     return (
         <form className='registration' onSubmit={handleSubmit(onSubmit)}>
             <h1>Register</h1>
-            <label htmlFor='firstname'>First Name:</label>
-            <input name='firstname' id='firstname'  ref={register} />
-            {errors.firstname && <p className='errors'>{errors.firstname.message}</p>}
+            <label htmlFor='firstName'>First Name:</label>
+            <input name='firstName' id='firstName'  ref={register} />
+            {errors.firstName && <p className='errors'>{errors.firstName.message}</p>}
             
-            <label htmlFor='lastname'>Last Name:</label>
-            <input name='lastname' id='lastname'  ref={register} />
-            {errors.lastname && <p className='errors'>{errors.lastname.message}</p>}
+            <label htmlFor='lastName'>Last Name:</label>
+            <input name='lastName' id='lastName'  ref={register} />
+            {errors.lastName && <p className='errors'>{errors.lastName.message}</p>}
 
             <label htmlFor='email'>Email:</label>
             <input name='email' id='email'  ref={register} />
@@ -27,6 +27,10 @@ const Registration = () => {
             <label htmlFor='username'>Desired User Name:</label>
             <input name='username' id='username'  ref={register} />
             {errors.username && <p className='errors'>{errors.username.message}</p>}
+
+            <label htmlFor='location'>Address:</label> 
+            <input name='location' id='location'  ref={register} />
+            {errors.location && <p className='errors'>{errors.location.message}</p>}
                         
             <label htmlFor='password'>Password:</label>
             <input type='password' name='password' id='password' ref={register} />
