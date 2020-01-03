@@ -5,7 +5,13 @@ import {axiosWithAuth as axios, getToken, setToken} from "../../utils/axiosWithA
 
 const useAuthActions = () => {
    const dispatch = useDispatch();
-   const updateUser = ({id, username}) => {
+   const authSuccess = ({data: {message, token}}) => {
+      console.log(message);
+      setToken(token);
+      
+      return axios(token).get("/auth/user");
+   };
+   const updateUser = ({data: {id, username}}) => {
       dispatch({type: LOGIN_SUCCESS, payload: {id, username}});
    };
    
@@ -30,12 +36,7 @@ const useAuthActions = () => {
 
       axios()
          .post("/auth/login", credentials)
-         .then(response => {
-            console.log(response.message);
-            setToken(response.token);
-            
-            return axios(response.token).get("/auth/user");
-         })
+         .then(authSuccess)
          .then(updateUser)
          .catch(error => {
             console.error(error.response);
@@ -46,11 +47,15 @@ const useAuthActions = () => {
    const register = useCallback((newUser) => {
       dispatch({type: SIGNUP_START});
 
+      if (newUser.location) {
+         //https://maps.googleapis.com/maps/api/geocode/json?address=${ user.location || event.location }&key=REACT_APP_API_KEY
+      }
+
       axios()
          .post("/auth/register", newUser)
-         .then(({id, username}) => {
+         .then(authSuccess)
+         .then(({data: {id, username}}) => {
             dispatch({type: SIGNUP_SUCCESS, payload: {id, username}});
-            // if (history && history.goBack) history.goBack();
          })
          .catch(error => {
             console.error(error.response)
