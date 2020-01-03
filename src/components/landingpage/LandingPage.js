@@ -10,7 +10,7 @@ import Panarama from '../../assets/nielsen_judge_lands.jpg'
 
 export default function LandingPage() {
     return (
-        <div>
+        <div className="body">
             {/* <nav>This is a holding spot for the nav</nav> */}
             <div className='overlay-background'>
                 <div className='flex'>

@@ -30,9 +30,9 @@ function EventListings() {
   
   return (
     <>
+      <AutoCompleteForm address={address} setAddress={setAddress} coordinates={coordinates} setCoordinates={setCoordinates}/>
       <EventsContainer>
         <ListingsContainer>
-        <AutoCompleteForm address={address} setAddress={setAddress} coordinates={coordinates} setCoordinates={setCoordinates}/>
           <Listing places={places} />
         </ListingsContainer>
         <WrappedMap 
@@ -52,8 +52,6 @@ export default EventListings;
 
 const EventsContainer = styled.div`
   display: flex;
-  justify-content: space-around;
-  align-items: center;
   width: 100%;
 `
 

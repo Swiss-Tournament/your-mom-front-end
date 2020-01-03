@@ -2,7 +2,7 @@ import React from "react";
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 import styled from 'styled-components';
 
-function AutoCompleteForm({ address, setAddress, coordinates, setCoordinates }) {
+function AutoCompleteForm({ address, setAddress, setCoordinates }) {
   
   const handleSelect = async value => {
     const results = await geocodeByAddress(value);
@@ -12,7 +12,7 @@ function AutoCompleteForm({ address, setAddress, coordinates, setCoordinates }) 
   };
 
   return (
-    <>
+    <InputContainer>
       <PlacesAutocomplete
         value={address}
         onChange={setAddress}
@@ -41,18 +41,25 @@ function AutoCompleteForm({ address, setAddress, coordinates, setCoordinates }) 
           </>
         )}
       </PlacesAutocomplete>
-    </>
+    </InputContainer>
   );
 }
 
 export default AutoCompleteForm;
 
+const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin: 1% auto;
+`
 
 const inputStyles = {
   width: '24rem',
   height: '2.5rem',
   margin: '1% auto',
-  paddingLeft: '3%',
+  paddingLeft: '2%',
   border: '1px black solid',
 }
 
@@ -62,7 +69,7 @@ const SuggestionContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 75%;
-  min-height: 10rem;
+  min-height: 6rem;
   height: 100%;
   margin: 1% auto;
   cursor: pointer;

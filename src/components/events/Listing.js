@@ -1,20 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import EventPage from './EventPage/EventPage'
+import EventPage from './EventPage/EventPage';
+import Moment from 'moment';
 
 function Listing({ places }) {
   console.log(places)
   return (
     <>
       {places.map(place => {
+        const newDate = Moment(`${place.date}`).format('MM DD, YYYY - HH:mm:ss')
         return (
           <GameListing key={place.id}>
             <Heading>{place.name}</Heading>
             <Paragraph>{place.location}</Paragraph>
+            <Paragraph>{newDate}</Paragraph>
             <Link to={`/events/${place.id}`}>
               <EventPage key={place.id} />
-              Join Event!
+              Join the Event!
             </Link>
           </GameListing>
         )
@@ -36,7 +39,7 @@ const GameListing = styled.div`
   border: none;
   border-radius: .6rem;
   box-shadow: 1px 3px 5px;
-  min-height: 10rem;
+  min-height: 7rem;
   height: 100%;
 `
 
