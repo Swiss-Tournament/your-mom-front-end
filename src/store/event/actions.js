@@ -26,7 +26,7 @@ const useEventActions = () => {
       dispatch({type: CREATE_EVENT_START});
 
       axiosWithAuth()
-         .post(`/event/${userId}`, )
+         .post(`/event/${userId}`, eventData)
          .then(({data}) => {
             console.log("New Event Created: ", data);
             dispatch({type: CREATE_EVENT_SUCCESS, payload: data})
