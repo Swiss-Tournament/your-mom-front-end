@@ -27,7 +27,7 @@ import Team from "../team/team";
 
 const NewNav = styled(Nav)`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   // changed background color to match global.
@@ -67,6 +67,21 @@ const NewDropDownItem = styled(DropdownItem)`
   text-align: center;
 `
 
+const LogoWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top 1%;
+  width: 30%;
+`
+
+const LinkWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 40%;
+`
+
 const Navigation = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -77,41 +92,46 @@ const Navigation = () => {
   return (
     <div>
       <NewNav>
-        <NavItem>
-          <h1>MTG Tourney</h1>
-        </NavItem>
-        <NavItem>
-          <NewLinks href='/'>Home</NewLinks>
-        </NavItem>
-        <NavItem>
-          <NewLinks href='/team'>Team</NewLinks>
-        </NavItem>
-        <NavItem>
-          {UserSignedIn && <NavLink href="/events">Events</NavLink>}
-          <NewLinks href='/events'>Events</NewLinks>
-        </NavItem>
-        <Dropdown nav isOpen={dropdownOpen} toggle={toggle}>
-          <NewDropToggle nav caret>
-            <FontAwesomeIcon icon={faHatWizard} size='1x' color='white' />
-          </NewDropToggle>
-          <DropdownMenu>
-            {!UserSignedIn && (
-              <NewDropDownItem tag={Link} to='/login'>
-                Login
+        <LogoWrapper>
+          <NavItem>
+            <h1>MTG Tourney</h1>
+          </NavItem>
+        </LogoWrapper>
+        <LinkWrapper>
+          <NavItem>
+            <NewLinks href='/'>Home</NewLinks>
+          </NavItem>
+          <NavItem>
+            <NewLinks href='/team'>Team</NewLinks>
+          </NavItem>
+          <NavItem>
+            {UserSignedIn && <NavLink href="/events">Events</NavLink>}
+            <NewLinks href='/events'>Events</NewLinks>
+          </NavItem>
+          <Dropdown nav isOpen={dropdownOpen} toggle={toggle}>
+            <NewDropToggle nav caret>
+              <FontAwesomeIcon icon={faHatWizard} size='1x' color='white' />
+            </NewDropToggle>
+            <DropdownMenu>
+              {!UserSignedIn && (
+                <NewDropDownItem tag={Link} to='/login'>
+                  Login
+                </NewDropDownItem>
+              )}
+
+              {UserSignedIn && (
+              <NewDropDownItem tag={Link} to='/user/:id/my-events'>
+                My Events
               </NewDropDownItem>
-            )}
 
-            {UserSignedIn && (
-            <NewDropDownItem tag={Link} to='/user/:id/my-events'>
-              My Events
-            </NewDropDownItem>
+              )}
+              <DropdownItem divider />
+            </DropdownMenu>
+          </Dropdown>
 
-            )}
-            <DropdownItem divider />
-          </DropdownMenu>
-        </Dropdown>
-
-        <NavLink to="/login">Login</NavLink>
+          <NavLink to="/login">Login</NavLink>
+        
+        </LinkWrapper>
       </NewNav>
 
       <Switch>
