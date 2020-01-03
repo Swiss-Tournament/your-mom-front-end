@@ -1,5 +1,6 @@
 import React from "react";
 import "./landingpage.css";
+import { Link } from 'react-router-dom';
 import Forest from "../../assets/Forest-Art-Theros.jpg";
 import Island from "../../assets/Island-2-Amonkhet-MtG-Art.jpg";
 import Plains from "../../assets/Plains-Art-Theros.jpg";
@@ -26,12 +27,16 @@ export default function LandingPage() {
             {/* left side column */}
             <EventsTitle>Events</EventsTitle>
             <div className='card left'>
-              <img src={Island} alt='island mtg card' className='image' />
-              <h3 className='overlay'>Upcoming Events</h3>
+              <Link to="/events">
+                <img src={Island} alt='island mtg card' className='image' />
+                <h3 className='overlay'>Upcoming Events</h3>
+              </Link>
             </div>
             <div className='card left'>
-              <img src={Swamp} alt='swamp mtg card' class='image' />
-              <h3 className='overlay'>Register An Event</h3>
+              <Link to="/create-event"> 
+                <img src={Swamp} alt='swamp mtg card' class='image' />
+                <h3 className='overlay'>Register An Event</h3>
+              </Link>
             </div>
           </div>
           <div className='magic-info'>
