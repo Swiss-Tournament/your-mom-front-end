@@ -34,5 +34,3 @@ export const axiosWithAuth = (token) => {
       }
    })
 }
-
-export const axios;
