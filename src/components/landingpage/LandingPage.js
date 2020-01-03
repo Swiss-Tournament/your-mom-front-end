@@ -7,13 +7,6 @@ import Swamp from "../../assets/Swamp-Art-Theros.jpg";
 import Panarama from "../../assets/nielsen_judge_lands.jpg";
 
 import styled from "styled-components";
-import {
-  bodyFont,
-  colors,
-  headerFont,
-  MIN_WIDTH,
-  MAX_WIDTH
-} from "../style-utils/variables";
 
 // styled components.
 const EventsTitle = styled.h2`

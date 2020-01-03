@@ -19,13 +19,11 @@ const TeamContainer = styled.div`
 // photo styling.
 const TeamPhoto = styled.img`
   width: 100%;
-  //   padding: 10px;
 `;
 const TeamName = styled.h1`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2%;
 `;
 export default function Team() {
   return (
