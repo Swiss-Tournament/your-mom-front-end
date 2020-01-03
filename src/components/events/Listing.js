@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import EventPage from './EventPage/EventPage'
 
 const GameListing = styled.div`
   display: flex;
@@ -44,10 +45,11 @@ function Listing({ places }) {
     <>
       {places.map(place => {
         return (
-          <GameListing>
+          <GameListing key={place.id}>
             <Heading>{place.name}</Heading>
             <Paragraph>{place.location}</Paragraph>
             <Link to={`/events/${place.id}`}>
+              <EventPage key={place.id} />
               Join Event!
             </Link>
           </GameListing>
