@@ -26,9 +26,9 @@ function EventTimer() {
       {`${(Math.floor(time/60)).toString().padStart(2, '0')}:${(time%60).toString().padStart(2, '0')}`}
     </Timer>
     {!timerRunning ? (
-      <Button onClick={() => updateTimerRunning(!timerRunning)}>Start</Button>
+      <Button onClick={() => updateTimerRunning(!timerRunning)}>START</Button>
     ) : (
-      <Button onClick={() => updateTimerRunning(!timerRunning)}>Pause</Button>
+      <Button onClick={() => updateTimerRunning(!timerRunning)}>PAUSE</Button>
     )}
     </TimerWrapper>
   )
@@ -57,7 +57,7 @@ const Button = styled.button`
     min-height: 4rem;
     padding: 1%;
     margin: 1% auto;
-    font-size: 1.3rem;
+    font-size: 1.9rem;
     font-weight: 600;
     border: none;
     border-radius: 5px;
