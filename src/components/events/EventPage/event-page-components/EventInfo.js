@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Moment from "moment";
+import EventTimer from './EventTimer';
 
 const EventInfo = props => {
   const newDate = Moment(`${props.data.date}`).format("MM DD, YYYY ");
@@ -8,26 +9,30 @@ const EventInfo = props => {
   return (
     <InfoWrapper>
       <OrganizerWrapper>
-        <Paragraph>Event Organizer: {props.data.admins[0]} </Paragraph>
-        <Paragraph>Event 2nd: {props.data.admins[1]} </Paragraph>
-        <Paragraph>Name: {props.data.name}</Paragraph>
+        <EventInfoWrapper>
+          <Paragraph>Name:</Paragraph>
+          <Paragraph>Event Organizer:</Paragraph>
+          <Paragraph>Event 2nd:</Paragraph>
+        </EventInfoWrapper>
+        <EventDataWrapper>
+          <Paragraph><Span>{props.data.name}</Span></Paragraph>
+          <Paragraph><Span>{props.data.admins[0]}</Span> </Paragraph>
+          <Paragraph><Span>{props.data.admins[1]}</Span> </Paragraph>
+        </EventDataWrapper>
       </OrganizerWrapper>
+      <EventTimer />
       <LocationWrapper>
-        <Paragraph>Event Date: {newDate}</Paragraph>
-        <Paragraph>Start Time: {newTime}</Paragraph>
-        <Paragraph>Address: {props.data.location.address}</Paragraph>
+        <EventInfoWrapper>
+          <Paragraph>Event Date:</Paragraph>
+          <Paragraph>Start Time:</Paragraph>
+          <Paragraph>Address:</Paragraph>
+        </EventInfoWrapper>
+        <EventDataWrapper>
+          <Paragraph><Span>{newDate}</Span></Paragraph>
+          <Paragraph><Span>{newTime}</Span></Paragraph>
+          <Paragraph><Span>{props.data.location.address}</Span></Paragraph>
+        </EventDataWrapper>
       </LocationWrapper>
-
-      {/* <OrganizerWrapper>
-                <Paragraph>Event Organizer: Judge Awesome</Paragraph>
-                <Paragraph>Event 2nd: Commander 2nd</Paragraph>
-                <Paragraph>Name: Brenda's French Soul Food</Paragraph>
-            </OrganizerWrapper>
-            <LocationWrapper>
-                <Paragraph>Event Date: Jan. 17, 2020</Paragraph>
-                <Paragraph>Start Time: 1:00PM EST</Paragraph>
-                <Paragraph>Address: 652 Polk St, San Francisco, CA 94102</Paragraph>
-            </LocationWrapper> */}
     </InfoWrapper>
   );
 };
@@ -39,28 +44,44 @@ const InfoWrapper = styled.div`
   width: 100%;
 `;
 
-const OrganizerWrapper = styled.div`
+const EventInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  width: 30%;
+`
+
+const EventDataWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+const OrganizerWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 48%;
+  width: 100%;
   margin: 1% auto;
-  padding: 2%;
+  padding: 1%;
 `;
 
 const LocationWrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 48%;
+  width: 100%;
   margin: 1% auto;
-  padding: 2%;
+  padding: 1%;
 `;
 
 const Paragraph = styled.p`
   font-size: 1.6rem;
-  margin: 1% auto;
+  letter-spacing: 1.2;
   padding: none;
+  margin: 2% 0;
 `;
+
+const Span = styled.span`
+  color: blue;
+`

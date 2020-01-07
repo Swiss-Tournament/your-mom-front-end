@@ -39,8 +39,8 @@ const EventPage = ({
         <PlayersAndScores>
           <PlayerList>
             <h1>List of Players</h1>
-            <EventPlayers players={data.players} />
             <HR />
+            <EventPlayers players={data.players} />
           </PlayerList>
 
           <Scoreboard>
@@ -63,7 +63,7 @@ const EventWrapper = styled.div`
 	margin: 1% auto;
 	width: 100%;
 	min-height: 90vh;
-	height 100%;
+	height: 100%;
 `;
 
 const PlayersAndScores = styled.div`

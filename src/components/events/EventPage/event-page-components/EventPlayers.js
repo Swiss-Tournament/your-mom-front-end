@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 const EventPlayers = props => {
   //Need to find out how player list can be accessed.
@@ -7,7 +8,7 @@ const EventPlayers = props => {
     <>
       {props.players.map(player => (
         <ul key={player.id}>
-          <li>{player}</li>
+          <Li>{player}</Li>
         </ul>
       ))}
     </>
@@ -15,3 +16,9 @@ const EventPlayers = props => {
 };
 
 export default EventPlayers;
+
+const Li = styled.li`
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin: 1% 0;
+`
