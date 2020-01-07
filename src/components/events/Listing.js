@@ -43,6 +43,7 @@ const GameListing = styled.div`
   box-shadow: 1px 3px 5px;
   min-height: 7rem;
   height: 100%;
+  background: white;
 `;
 
 const Heading = styled.h1`
