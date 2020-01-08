@@ -11,7 +11,7 @@ const CreateEvent = () => {
 
   const { event } = useContext(ActionsContext);
 
-  //   const user = useSelector(state => state.auth.user);
+  // const user = useSelector(state => state.auth.user);
   const [newEvent, setNewEvent] = useState({
     name: " ",
     date: " ",
@@ -179,6 +179,9 @@ const HR = styled.hr`
 const ImageContainer = styled.div`
   width: 60%;
   background-image: url(${MTG});
+  background-size: 115%;
+  background-repeat: no-repeat;
+  object-fit: contain;
 `
 
 const FormContainer = styled.div`
