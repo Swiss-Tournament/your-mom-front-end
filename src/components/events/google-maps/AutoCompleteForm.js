@@ -52,7 +52,9 @@ const InputContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  margin: 1% auto;
+  margin: 0% auto;
+  padding: 1%;
+  background: #1a1918;
 `
 
 const inputStyles = {

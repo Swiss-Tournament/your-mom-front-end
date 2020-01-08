@@ -52,6 +52,7 @@ export default EventListings;
 const EventsContainer = styled.div`
   display: flex;
   width: 100%;
+  background: #1a1918;
 `
 
 const ListingsContainer = styled.div`

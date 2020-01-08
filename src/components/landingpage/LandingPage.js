@@ -63,10 +63,6 @@ export default function LandingPage() {
           <h3 className='overlay'>Leaderboard Coming Soon!</h3>
         </div>
       </div>
-      <div className='footer'>
-        {/* bottom of page contains credit to the makers of mtg and artists */}
-        <p>footer placeholder</p>
-      </div>
     </div>
   );
 }
